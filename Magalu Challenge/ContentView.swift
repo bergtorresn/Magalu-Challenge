@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+        
+    private var usecase = GetPopularRepositoriesUseCase(repository:  PopularListRepository(dataSource: PopularListDataSource(networkService: NetworkService())))
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,6 +19,16 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear(perform: {
+            usecase.call(page: 1) { result in
+                switch result {
+                case .success(let success):
+                    print(success)
+                case .failure(let failure):
+                    print(failure.localizedDescription)
+                }
+            }
+        })
     }
 }
 

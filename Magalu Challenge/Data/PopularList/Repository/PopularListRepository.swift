@@ -7,19 +7,19 @@
 
 import Foundation
 
-class PopularRepositoriesRepository : PopularRepositoriesRepositoryProtocol {
+class PopularListRepository : PopularListRepositoryProtocol {
     
-    var dataSource : RepositoryListDataSourceProtocol
+    var dataSource : PopularListDataSourceProtocol
     
-    init(dataSource: RepositoryListDataSourceProtocol) {
+    init(dataSource: PopularListDataSourceProtocol) {
         self.dataSource = dataSource
     }
     
-    func doRequestGetPopularRepositories(page: Int, completion: @escaping (Result<[RepositoryResponse], NetworkError>) -> Void) {
-        self.dataSource.doRequestGetPopularRepositories(page: page) { result in
+    func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryEntity], NetworkError>) -> Void) {
+        self.dataSource.doRequestGetPopularList(page: page) { result in
             switch result {
             case .success(let success):
-                completion(.success(success ?? []))
+                completion(.success(RepositoryEntity.mapRepositoryResponseToRepositoryEntity(input: success ?? [])))
             case .failure(let error):
                 completion(.failure(error))
             }

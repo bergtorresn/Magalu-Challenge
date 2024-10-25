@@ -7,22 +7,24 @@
 
 import Foundation
 
-protocol RepositoryListDataSourceProtocol {
+protocol PopularListDataSourceProtocol {
     func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryResponse]?, NetworkError>) -> Void)
 }
 
-class RepositoryListDataSource: RepositoryListDataSourceProtocol {
+class PopularListDataSource: PopularListDataSourceProtocol {
     
-    var networkService: NetworkService
+    var networkService: NetworkServiceProtocol
     
-    init(networkService: NetworkService) {
+    init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
     
     func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryResponse]?, NetworkError>) -> Void) {
         self.networkService.doRequest(endpoint: "search/repositories",
-                                    parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],
-                                    responseType: RepositoryListModel.self) { result in
+                                      method: .get,
+                                      parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],
+                                      headers: nil,
+                                      responseType: PopularListModel.self) { result in
             switch result {
             case .success(let success):
                 completion(.success(success.items))

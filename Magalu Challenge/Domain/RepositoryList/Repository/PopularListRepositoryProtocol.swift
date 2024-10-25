@@ -9,6 +9,6 @@ import Foundation
 
 protocol PopularListRepositoryProtocol {
     
-    func doRequestGetPopularRepositories(page: Int, completion: @escaping (Result<[RepositoryResponse], NetworkError>) -> Void)
+    func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryEntity], NetworkError>) -> Void)
     
 }

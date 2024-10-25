@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D55CE5F0F742E9B9E389881 /* Pods_Magalu_ChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF360A24822AD9515E584695 /* Pods_Magalu_ChallengeTests.framework */; };
+		31D2ACC9E4B7EF3EC7671405 /* Pods_Magalu_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */; };
+		4027A2C0B40F5EF737900A41 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA5AA3A06E248FC83823C6 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework */; };
 		61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */; };
 		61BB66E12CCAE85100B4CDB8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66E02CCAE85100B4CDB8 /* ContentView.swift */; };
 		61BB66E32CCAE85500B4CDB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BB66E22CCAE85500B4CDB8 /* Assets.xcassets */; };
@@ -14,6 +17,16 @@
 		61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */; };
 		61BB66FA2CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66F92CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift */; };
 		61BB66FC2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66FB2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift */; };
+		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
+		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
+		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
+		9897B3F62CCC2A4600651C91 /* PopularListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E32CCC2A4600651C91 /* PopularListModel.swift */; };
+		9897B3F72CCC2A4600651C91 /* RepositoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E42CCC2A4600651C91 /* RepositoryModel.swift */; };
+		9897B3F82CCC2A4600651C91 /* PopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E62CCC2A4600651C91 /* PopularListRepository.swift */; };
+		9897B3F92CCC2A4600651C91 /* OwnerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3EA2CCC2A4600651C91 /* OwnerEntity.swift */; };
+		9897B3FA2CCC2A4600651C91 /* RepositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3EB2CCC2A4600651C91 /* RepositoryEntity.swift */; };
+		9897B3FB2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3ED2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift */; };
+		9897B3FC2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3EF2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0983B017B85468386468E2 /* Pods-Magalu ChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu ChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-Magalu ChallengeTests/Pods-Magalu ChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magalu_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66DB2CCAE85100B4CDB8 /* Magalu Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magalu Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeApp.swift; sourceTree = "<group>"; };
 		61BB66E02CCAE85100B4CDB8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +59,23 @@
 		61BB66F52CCAE85500B4CDB8 /* Magalu ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66F92CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITests.swift; sourceTree = "<group>"; };
 		61BB66FB2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
+		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
+		9897B3E32CCC2A4600651C91 /* PopularListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListModel.swift; sourceTree = "<group>"; };
+		9897B3E42CCC2A4600651C91 /* RepositoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryModel.swift; sourceTree = "<group>"; };
+		9897B3E62CCC2A4600651C91 /* PopularListRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListRepository.swift; sourceTree = "<group>"; };
+		9897B3EA2CCC2A4600651C91 /* OwnerEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerEntity.swift; sourceTree = "<group>"; };
+		9897B3EB2CCC2A4600651C91 /* RepositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryEntity.swift; sourceTree = "<group>"; };
+		9897B3ED2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9897B3EF2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPopularRepositoriesUseCase.swift; sourceTree = "<group>"; };
+		A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.debug.xcconfig"; sourceTree = "<group>"; };
+		B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.release.xcconfig"; sourceTree = "<group>"; };
+		CF360A24822AD9515E584695 /* Pods_Magalu_ChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magalu_ChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDF4BBB39A48F61385D6D226 /* Pods-Magalu ChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu ChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-Magalu ChallengeTests/Pods-Magalu ChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4AA5AA3A06E248FC83823C6 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D2ACC9E4B7EF3EC7671405 /* Pods_Magalu_Challenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D55CE5F0F742E9B9E389881 /* Pods_Magalu_ChallengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4027A2C0B40F5EF737900A41 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +113,8 @@
 				61BB66EE2CCAE85500B4CDB8 /* Magalu ChallengeTests */,
 				61BB66F82CCAE85500B4CDB8 /* Magalu ChallengeUITests */,
 				61BB66DC2CCAE85100B4CDB8 /* Products */,
+				D60215BFE423CDB03B8652C7 /* Pods */,
+				E1214A63459654CAA414F6B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +131,9 @@
 		61BB66DD2CCAE85100B4CDB8 /* Magalu Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				9897B3E92CCC2A4600651C91 /* Data */,
+				9897B3F22CCC2A4600651C91 /* Domain */,
+				9897B3DF2CCC2A4600651C91 /* Service */,
 				61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */,
 				61BB66E02CCAE85100B4CDB8 /* ContentView.swift */,
 				61BB66E22CCAE85500B4CDB8 /* Assets.xcassets */,
@@ -127,6 +167,132 @@
 			path = "Magalu ChallengeUITests";
 			sourceTree = "<group>";
 		};
+		9897B3DE2CCC2A4600651C91 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3DD2CCC2A4600651C91 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		9897B3DF2CCC2A4600651C91 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3DE2CCC2A4600651C91 /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		9897B3E12CCC2A4600651C91 /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		9897B3E52CCC2A4600651C91 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3E22CCC2A4600651C91 /* OwnerModel.swift */,
+				9897B3E32CCC2A4600651C91 /* PopularListModel.swift */,
+				9897B3E42CCC2A4600651C91 /* RepositoryModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9897B3E72CCC2A4600651C91 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3E62CCC2A4600651C91 /* PopularListRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		9897B3E82CCC2A4600651C91 /* PopularList */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3E12CCC2A4600651C91 /* Datasource */,
+				9897B3E52CCC2A4600651C91 /* Model */,
+				9897B3E72CCC2A4600651C91 /* Repository */,
+			);
+			path = PopularList;
+			sourceTree = "<group>";
+		};
+		9897B3E92CCC2A4600651C91 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3E82CCC2A4600651C91 /* PopularList */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9897B3EC2CCC2A4600651C91 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3EA2CCC2A4600651C91 /* OwnerEntity.swift */,
+				9897B3EB2CCC2A4600651C91 /* RepositoryEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9897B3EE2CCC2A4600651C91 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3ED2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		9897B3F02CCC2A4600651C91 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3EF2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		9897B3F12CCC2A4600651C91 /* RepositoryList */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3EC2CCC2A4600651C91 /* Entity */,
+				9897B3EE2CCC2A4600651C91 /* Repository */,
+				9897B3F02CCC2A4600651C91 /* UseCase */,
+			);
+			path = RepositoryList;
+			sourceTree = "<group>";
+		};
+		9897B3F22CCC2A4600651C91 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				9897B3F12CCC2A4600651C91 /* RepositoryList */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		D60215BFE423CDB03B8652C7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */,
+				C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */,
+				B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */,
+				6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */,
+				EDF4BBB39A48F61385D6D226 /* Pods-Magalu ChallengeTests.debug.xcconfig */,
+				2F0983B017B85468386468E2 /* Pods-Magalu ChallengeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E1214A63459654CAA414F6B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */,
+				F4AA5AA3A06E248FC83823C6 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework */,
+				CF360A24822AD9515E584695 /* Pods_Magalu_ChallengeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +300,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61BB66FF2CCAE85500B4CDB8 /* Build configuration list for PBXNativeTarget "Magalu Challenge" */;
 			buildPhases = (
+				9383A3664602961396D8B96E /* [CP] Check Pods Manifest.lock */,
 				61BB66D72CCAE85100B4CDB8 /* Sources */,
 				61BB66D82CCAE85100B4CDB8 /* Frameworks */,
 				61BB66D92CCAE85100B4CDB8 /* Resources */,
+				9189A83C298DA589B00993D9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +319,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61BB67022CCAE85500B4CDB8 /* Build configuration list for PBXNativeTarget "Magalu ChallengeTests" */;
 			buildPhases = (
+				D083733B916C698B896C3A79 /* [CP] Check Pods Manifest.lock */,
 				61BB66E72CCAE85500B4CDB8 /* Sources */,
 				61BB66E82CCAE85500B4CDB8 /* Frameworks */,
 				61BB66E92CCAE85500B4CDB8 /* Resources */,
@@ -169,9 +338,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61BB67052CCAE85500B4CDB8 /* Build configuration list for PBXNativeTarget "Magalu ChallengeUITests" */;
 			buildPhases = (
+				4FBC8CDFEEA0893FB2079B4F /* [CP] Check Pods Manifest.lock */,
 				61BB66F12CCAE85500B4CDB8 /* Sources */,
 				61BB66F22CCAE85500B4CDB8 /* Frameworks */,
 				61BB66F32CCAE85500B4CDB8 /* Resources */,
+				2E3B44FB9815116F2603BCF1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -252,12 +423,125 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2E3B44FB9815116F2603BCF1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4FBC8CDFEEA0893FB2079B4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Magalu Challenge-Magalu ChallengeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9189A83C298DA589B00993D9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9383A3664602961396D8B96E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Magalu Challenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D083733B916C698B896C3A79 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Magalu ChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		61BB66D72CCAE85100B4CDB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */,
+				9897B3F92CCC2A4600651C91 /* OwnerEntity.swift in Sources */,
+				9897B3F62CCC2A4600651C91 /* PopularListModel.swift in Sources */,
+				9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */,
 				61BB66E12CCAE85100B4CDB8 /* ContentView.swift in Sources */,
+				9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */,
+				9897B3FC2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift in Sources */,
+				9897B3FA2CCC2A4600651C91 /* RepositoryEntity.swift in Sources */,
+				9897B3F82CCC2A4600651C91 /* PopularListRepository.swift in Sources */,
+				9897B3FB2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift in Sources */,
+				9897B3F72CCC2A4600651C91 /* RepositoryModel.swift in Sources */,
 				61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,6 +700,7 @@
 		};
 		61BB67002CCAE85500B4CDB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -423,6 +708,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Magalu Challenge/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -444,6 +730,7 @@
 		};
 		61BB67012CCAE85500B4CDB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -451,6 +738,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Magalu Challenge/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,6 +760,7 @@
 		};
 		61BB67032CCAE85500B4CDB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDF4BBB39A48F61385D6D226 /* Pods-Magalu ChallengeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +780,7 @@
 		};
 		61BB67042CCAE85500B4CDB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F0983B017B85468386468E2 /* Pods-Magalu ChallengeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +800,7 @@
 		};
 		61BB67062CCAE85500B4CDB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -527,6 +818,7 @@
 		};
 		61BB67072CCAE85500B4CDB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

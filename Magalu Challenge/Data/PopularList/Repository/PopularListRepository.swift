@@ -18,7 +18,7 @@ class PopularListRepository : PopularListRepositoryProtocol {
     
     func doRequestGetPopularList(page: Int) -> Single<[RepositoryEntity]> {
         return self.dataSource.doRequestGetPopularList(page: page).map { repository in
-            return RepositoryEntity.mapRepositoryResponseToRepositoryEntity(input: repository.items)
+            return RepositoryEntity.toRepositoryEntity(input: repository.items)
         }
     }
 }

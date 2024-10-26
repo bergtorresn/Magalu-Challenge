@@ -10,13 +10,15 @@ import Foundation
 struct OwnerEntity {
     
     var name: String
+    var avatar: String
     
-    init(name: String) {
+    init(name: String, avatar: String) {
         self.name = name
+        self.avatar = avatar
     }
     
-    static func mapOwnerModelToOwnerEntity(input response: OwnerModel) -> OwnerEntity {
-        return OwnerEntity(name: response.name)
+    static func toOwnerEntity(input response: OwnerModel) -> OwnerEntity {
+        return OwnerEntity(name: response.name, avatar: response.avatar)
     }
 
 }

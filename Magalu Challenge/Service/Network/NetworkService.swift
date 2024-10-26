@@ -26,7 +26,6 @@ protocol NetworkServiceProtocol {
 
 class NetworkService : NetworkServiceProtocol{
     
-    private let baseURL = "https://api.github.com/"
     private let session: Session
     static let shared = NetworkService()
     
@@ -48,7 +47,7 @@ class NetworkService : NetworkServiceProtocol{
         }
         
         return Single.create { single in
-            let request = self.session.request(self.baseURL + endpoint,
+            let request = self.session.request(AppStrings.baseURL + endpoint,
                                                method: method,
                                                parameters: parameters,
                                                encoding: URLEncoding.queryString,
@@ -70,20 +69,20 @@ class NetworkService : NetworkServiceProtocol{
     
     private func handlerErrors(error: AFError) -> NetworkError {
         if error.isResponseSerializationError {
-            return .decodeError("Decode Error")
+            return .decodeError(AppStrings.decodeError)
         } else {
             if let statusCode = error.responseCode {
-                switch  statusCode {
+                switch statusCode {
                 case 400...499:
-                    return .notFound("Not Found")
+                    return .notFound(AppStrings.notFoundError)
                 case 500...599:
-                    return .serverError("Server Error")
+                    return .serverError(AppStrings.serverError)
                 default:
-                    return .unknownError("Unknown Error")
+                    return .unknownError(AppStrings.unknownError)
                 }
             }
         }
         
-        return .unknownError("Unknown Error")
+        return .unknownError(AppStrings.unknownError)
     }
 }

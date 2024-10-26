@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import RxSwift
 
 enum NetworkError: Error {
     case unknownError(String)
@@ -20,9 +21,7 @@ protocol NetworkServiceProtocol {
         endpoint: String,
         method: HTTPMethod,
         parameters: [String: Any]?,
-        headers: HTTPHeaders?,
-        responseType: T.Type,
-        completion: @escaping (Result<T, NetworkError>) -> Void)
+        headers: HTTPHeaders?) -> Single<T>
 }
 
 class NetworkService : NetworkServiceProtocol{
@@ -33,6 +32,40 @@ class NetworkService : NetworkServiceProtocol{
     
     init(session: Session = .default) {
         self.session = session
+    }
+    
+    func doRequest<T>(endpoint: String,
+                      method: Alamofire.HTTPMethod,
+                      parameters: [String : Any]?,
+                      headers: Alamofire.HTTPHeaders?) -> RxSwift.Single<T> where T : Decodable {
+        
+        var defaultHeards: HTTPHeaders = ["Content-Type": "application/json"]
+        
+        if let customHeaders = headers {
+            for header in customHeaders {
+                defaultHeards.add(header)
+            }
+        }
+        
+        return Single.create { single in
+            let request = self.session.request(self.baseURL + endpoint,
+                                               method: method,
+                                               parameters: parameters,
+                                               encoding: URLEncoding.queryString,
+                                               headers: defaultHeards)
+                .validate()
+                .responseDecodable(of: T.self) { response in
+                    switch response.result {
+                    case .success(let data):
+                        single(.success(data))
+                    case .failure(let error):
+                        single(.failure(self.handlerErrors(error: error)))
+                    }
+                }
+            return Disposables.create {
+                request.cancel()
+            }
+        }
     }
     
     func doRequest<T: Decodable>(

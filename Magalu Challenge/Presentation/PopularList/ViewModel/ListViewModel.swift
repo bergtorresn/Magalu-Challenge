@@ -6,13 +6,14 @@
 //
 
 import Foundation
+import RxSwift
 
 enum ListPageState {
     case Init
     case Loading
-    case SuccessfullyFetched([RepositoryEntity]) // List of matching Movies
+    case SuccessfullyFetched([RepositoryEntity])
     case NoResultsFound
-    case ApiError(String) // Error message to be shown
+    case ApiError(String)
 }
 
 class ListViewModel: ObservableObject {
@@ -20,6 +21,7 @@ class ListViewModel: ObservableObject {
     @Published var uiState: ListPageState = .Init
     
     let usecase: GetPopularRepositoriesUseCaseProtocol
+    private let disposeBag = DisposeBag()
     
     init(usecase: GetPopularRepositoriesUseCaseProtocol) {
         self.usecase = usecase
@@ -27,19 +29,18 @@ class ListViewModel: ObservableObject {
     
     func doRequestGetPopularRepositories(page: Int){
         self.uiState = .Loading
-
-        self.usecase.call(page: page) { result in
-            switch result {
-            case .success(let success):
-                if success.isEmpty {
-                    self.uiState = .NoResultsFound
-                } else {
-                    self.uiState = .SuccessfullyFetched(success)
-                }
-            case .failure(let error):
-                self.uiState = .ApiError(error.localizedDescription)
-            }
-        }            
+        
+        self.usecase.call(page: page)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+                onSuccess: { [weak self] success in
+                    if success.isEmpty {
+                        self?.uiState = .NoResultsFound
+                    } else {
+                        self?.uiState = .SuccessfullyFetched(success)
+                    }
+                }, onFailure: { [weak self] failure in
+                    self?.uiState = .ApiError(failure.localizedDescription)
+                }).disposed(by: disposeBag)
     }
-    
 }

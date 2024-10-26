@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryResponse : Codable {
+struct RepositoryModel : Codable {
     
     var name: String = ""
     var fullName: String = ""

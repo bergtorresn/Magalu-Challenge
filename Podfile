@@ -6,7 +6,8 @@ target 'Magalu Challenge' do
   use_frameworks!
 
   # Pods for Magalu Challenge
-  pod 'Alamofire'
+  pod 'Alamofire', '~> 5.10'
+  pod 'RxSwift', '~> 6.8'
 
   target 'Magalu ChallengeTests' do
     inherit! :search_paths

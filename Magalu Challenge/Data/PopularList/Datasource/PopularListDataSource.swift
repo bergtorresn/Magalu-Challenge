@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PopularListDataSourceProtocol {
-    func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryResponse]?, NetworkError>) -> Void)
+    func doRequestGetPopularList(page: Int) -> Single<PopularListModel>
 }
 
 class PopularListDataSource: PopularListDataSourceProtocol {
@@ -19,18 +20,10 @@ class PopularListDataSource: PopularListDataSourceProtocol {
         self.networkService = networkService
     }
     
-    func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryResponse]?, NetworkError>) -> Void) {
-        self.networkService.doRequest(endpoint: "search/repositories",
-                                      method: .get,
-                                      parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],
-                                      headers: nil,
-                                      responseType: PopularListModel.self) { result in
-            switch result {
-            case .success(let success):
-                completion(.success(success.items))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func doRequestGetPopularList(page: Int) -> RxSwift.Single<PopularListModel> {
+        return self.networkService.doRequest(endpoint: "search/repositories",
+                                             method: .get,
+                                             parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],
+                                             headers: nil)
     }
 }

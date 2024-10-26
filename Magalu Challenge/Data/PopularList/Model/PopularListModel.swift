@@ -9,5 +9,5 @@ import Foundation
 
 struct PopularListModel: Codable {
     
-    var items: [RepositoryResponse] = []
+    var items: [RepositoryModel] = []
 }

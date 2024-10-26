@@ -6,9 +6,9 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol PopularListRepositoryProtocol {
     
-    func doRequestGetPopularList(page: Int, completion: @escaping (Result<[RepositoryEntity], NetworkError>) -> Void)
-    
+    func doRequestGetPopularList(page: Int) -> Single<[RepositoryEntity]>
 }

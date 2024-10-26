@@ -25,7 +25,7 @@ struct RepositoryEntity : Identifiable {
         self.owner = owner
     }
     
-    static func mapRepositoryResponseToRepositoryEntity(input response: [RepositoryResponse]) -> [RepositoryEntity] {
+    static func mapRepositoryResponseToRepositoryEntity(input response: [RepositoryModel]) -> [RepositoryEntity] {
         return response.map { result in
             return RepositoryEntity(name: result.name,
                                     fullName: result.fullName,

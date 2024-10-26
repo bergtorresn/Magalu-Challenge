@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GetPopularRepositoriesUseCaseProtocol {
-    func call(page: Int, completion: @escaping (Result<[RepositoryEntity], NetworkError>) -> Void)
+    func call(page: Int) -> Single<[RepositoryEntity]>
 }
 
 class GetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
@@ -19,14 +20,7 @@ class GetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
         self.repository = repository
     }
     
-    func call(page: Int, completion: @escaping (Result<[RepositoryEntity], NetworkError>) -> Void) {
-        self.repository.doRequestGetPopularList(page: page) { result in
-            switch result {
-            case .success(let success):
-                completion(.success(success))
-            case .failure(let error):
-                completion(.failure(error))
-            }
-        }
+    func call(page: Int) -> RxSwift.Single<[RepositoryEntity]> {
+        return self.repository.doRequestGetPopularList(page: page)
     }
 }

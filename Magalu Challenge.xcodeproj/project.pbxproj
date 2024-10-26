@@ -45,6 +45,9 @@
 		98F1E2572CCD78B1003CE49E /* GetPopularRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3EF2CCC2A4600651C91 /* GetPopularRepositoriesUseCase.swift */; };
 		98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E62CCC2A4600651C91 /* PopularListRepository.swift */; };
 		98F1E2592CCD78C1003CE49E /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
+		98F1E25E2CCD7A4F003CE49E /* OwnerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E25D2CCD7A4F003CE49E /* OwnerModelTests.swift */; };
+		98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E25F2CCD7E30003CE49E /* RepositoryModelTests.swift */; };
+		98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		98F1E2472CCD7846003CE49E /* OwnerEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerEntityTests.swift; sourceTree = "<group>"; };
 		98F1E2482CCD7846003CE49E /* RepositoryEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryEntityTests.swift; sourceTree = "<group>"; };
 		98F1E24A2CCD7846003CE49E /* GetPopularRepositoriesUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetPopularRepositoriesUseCaseTests.swift; sourceTree = "<group>"; };
+		98F1E25D2CCD7A4F003CE49E /* OwnerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerModelTests.swift; sourceTree = "<group>"; };
+		98F1E25F2CCD7E30003CE49E /* RepositoryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModelTests.swift; sourceTree = "<group>"; };
+		98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListModelTests.swift; sourceTree = "<group>"; };
 		A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +185,7 @@
 		61BB66EE2CCAE85500B4CDB8 /* Magalu ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				98F1E25A2CCD79CA003CE49E /* Data */,
 				98F1E24D2CCD7846003CE49E /* Domain */,
 				61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */,
 			);
@@ -380,6 +387,32 @@
 				98F1E24C2CCD7846003CE49E /* PopularList */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		98F1E25A2CCD79CA003CE49E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				98F1E25B2CCD79D1003CE49E /* PopularList */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		98F1E25B2CCD79D1003CE49E /* PopularList */ = {
+			isa = PBXGroup;
+			children = (
+				98F1E25C2CCD79DC003CE49E /* Model */,
+			);
+			path = PopularList;
+			sourceTree = "<group>";
+		};
+		98F1E25C2CCD79DC003CE49E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				98F1E25D2CCD7A4F003CE49E /* OwnerModelTests.swift */,
+				98F1E25F2CCD7E30003CE49E /* RepositoryModelTests.swift */,
+				98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		D60215BFE423CDB03B8652C7 /* Pods */ = {
@@ -675,12 +708,15 @@
 				98F1E24E2CCD7846003CE49E /* OwnerEntityTests.swift in Sources */,
 				98F1E2592CCD78C1003CE49E /* PopularListDataSource.swift in Sources */,
 				98F1E2462CCD77C3003CE49E /* AppStrings.swift in Sources */,
+				98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */,
 				98F1E2512CCD7863003CE49E /* OwnerEntity.swift in Sources */,
 				98F1E2532CCD7874003CE49E /* PopularListModel.swift in Sources */,
 				98F1E2422CCD7774003CE49E /* NetworkService.swift in Sources */,
 				98F1E24F2CCD7846003CE49E /* RepositoryEntityTests.swift in Sources */,
 				61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */,
 				98F1E2522CCD7872003CE49E /* OwnerModel.swift in Sources */,
+				98F1E25E2CCD7A4F003CE49E /* OwnerModelTests.swift in Sources */,
+				98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

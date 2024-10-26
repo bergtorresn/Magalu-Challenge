@@ -9,20 +9,20 @@ import XCTest
 
 final class RepositoryEntityTests: XCTestCase {
     
-    func testEntityInit() {
-        let repositoryEntity = RepositoryEntity(name: "kotlin",
+    func testRepositoryInit() {
+        let repository = RepositoryEntity(name: "kotlin",
                                               description: "The Kotlin Programming Language.",
                                               stargazersCount: 49210,
                                               watchersCount: 49210,
                                               owner: OwnerEntity(name: "JetBrains",
                                                                 avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
         
-        XCTAssertEqual(repositoryEntity.name, "kotlin")
-        XCTAssertEqual(repositoryEntity.description, "The Kotlin Programming Language.")
-        XCTAssertEqual(repositoryEntity.stargazersCount, 49210)
-        XCTAssertEqual(repositoryEntity.watchersCount, 49210)
-        XCTAssertEqual(repositoryEntity.owner.name, "JetBrains")
-        XCTAssertEqual(repositoryEntity.owner.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
+        XCTAssertEqual(repository.name, "kotlin")
+        XCTAssertEqual(repository.description, "The Kotlin Programming Language.")
+        XCTAssertEqual(repository.stargazersCount, 49210)
+        XCTAssertEqual(repository.watchersCount, 49210)
+        XCTAssertEqual(repository.owner.name, "JetBrains")
+        XCTAssertEqual(repository.owner.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
     }
     
     func testModelToEntityConversion() {

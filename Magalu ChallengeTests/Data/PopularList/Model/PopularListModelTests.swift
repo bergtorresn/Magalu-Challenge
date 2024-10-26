@@ -8,28 +8,61 @@
 import XCTest
 
 final class PopularListModelTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    func testPopularListtInit() {
+        let repository1 = RepositoryModel(name: "kotlin",
+                                          description: "The Kotlin Programming Language.",
+                                          stargazersCount: 49210,
+                                          watchersCount: 49210,
+                                          owner: OwnerModel(name: "JetBrains",
+                                                            avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
+        
+        let repository2 = RepositoryModel(name: "kotlin",
+                                          description: "The Kotlin Programming Language.",
+                                          stargazersCount: 49210,
+                                          watchersCount: 49210,
+                                          owner: OwnerModel(name: "JetBrains",
+                                                            avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
+        
+        let popularList = PopularListModel(items: [repository1, repository2])
+        
+        XCTAssertEqual(popularList.items.count, 2)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testDecoding() {
+        let json = """
+            {
+               "items":[
+                  {
+                     "name":"kotlin",
+                     "owner":{
+                        "login":"JetBrains",
+                        "avatar_url":"https://avatars.githubusercontent.com/u/878437?v=4"
+                     },
+                     "description":"The Kotlin Programming Language.",
+                     "stargazers_count":49210,
+                     "watchers_count":49210
+                  },
+                  {
+                     "name":"kotlin",
+                     "owner":{
+                        "login":"JetBrains",
+                        "avatar_url":"https://avatars.githubusercontent.com/u/878437?v=4"
+                     },
+                     "description":"The Kotlin Programming Language.",
+                     "stargazers_count":49210,
+                     "watchers_count":49210
+                  }
+               ]
+            }
+""".data(using: .utf8)!
+        
+        do {
+            let data = try JSONDecoder().decode(PopularListModel.self, from: json)
+            XCTAssertEqual(data.items.count, 2)
+            
+        } catch {
+            XCTFail("Decoding failed with error \(error)")
         }
     }
-
 }

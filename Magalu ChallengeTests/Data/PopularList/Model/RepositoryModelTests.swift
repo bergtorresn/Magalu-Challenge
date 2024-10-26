@@ -9,27 +9,48 @@ import XCTest
 
 final class RepositoryModelTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testRepositoryInit() {
+        let repository = RepositoryModel(name: "kotlin",
+                                              description: "The Kotlin Programming Language.",
+                                              stargazersCount: 49210,
+                                              watchersCount: 49210,
+                                              owner: OwnerModel(name: "JetBrains",
+                                                                avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
+        
+        XCTAssertEqual(repository.name, "kotlin")
+        XCTAssertEqual(repository.description, "The Kotlin Programming Language.")
+        XCTAssertEqual(repository.stargazersCount, 49210)
+        XCTAssertEqual(repository.watchersCount, 49210)
+        XCTAssertEqual(repository.owner.name, "JetBrains")
+        XCTAssertEqual(repository.owner.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testDecoding() {
+        let json = """
+         {
+               "name": "kotlin",
+               "owner": {
+                 "login": "JetBrains",
+                 "avatar_url": "https://avatars.githubusercontent.com/u/878437?v=4",
+               },
+               "description": "The Kotlin Programming Language.",
+               "stargazers_count": 49210,
+               "watchers_count": 49210,
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    """.data(using: .utf8)!
+        
+        do {
+            let data = try JSONDecoder().decode(RepositoryModel.self, from: json)
+            XCTAssertEqual(data.name, "kotlin")
+            XCTAssertEqual(data.description, "The Kotlin Programming Language.")
+            XCTAssertEqual(data.stargazersCount, 49210)
+            XCTAssertEqual(data.watchersCount, 49210)
+            XCTAssertEqual(data.owner.name, "JetBrains")
+            XCTAssertEqual(data.owner.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
+        } catch {
+            XCTFail("Decoding failed with error \(error)")
         }
     }
+    
 
 }

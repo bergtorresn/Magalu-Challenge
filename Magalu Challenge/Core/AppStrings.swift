@@ -11,6 +11,7 @@ class AppStrings {
     
     // ========== API STRINGS
     static let baseURL: String = "https://api.github.com/"
+    static let popularRepositoriesEndpoint: String = "search/repositories"
     static let decodeError: String = "Decode Error"
     static let notFoundError: String = "Not Found"
     static let serverError: String = "Server Error"

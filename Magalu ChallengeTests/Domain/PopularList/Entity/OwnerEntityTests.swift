@@ -9,12 +9,12 @@ import XCTest
 
 final class OwnerEntityTests: XCTestCase {
 
-    func testOwnerEntityInit() {
-        let ownerEntity = OwnerEntity(name: "JetBrains",
+    func testOwnerInit() {
+        let onwer = OwnerEntity(name: "JetBrains",
                                       avatar: "https://avatars.githubusercontent.com/u/878437?v=4")
         
-        XCTAssertEqual(ownerEntity.name, "JetBrains")
-        XCTAssertEqual(ownerEntity.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
+        XCTAssertEqual(onwer.name, "JetBrains")
+        XCTAssertEqual(onwer.avatar, "https://avatars.githubusercontent.com/u/878437?v=4")
     }
     
     func testModelToEntityConversion() {

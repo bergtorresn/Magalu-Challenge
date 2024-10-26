@@ -10,4 +10,8 @@ import Foundation
 struct PopularListModel: Codable {
     
     var items: [RepositoryModel] = []
+    
+    init(items: [RepositoryModel]) {
+        self.items = items
+    }
 }

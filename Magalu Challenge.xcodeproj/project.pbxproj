@@ -48,6 +48,8 @@
 		98F1E25E2CCD7A4F003CE49E /* OwnerModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E25D2CCD7A4F003CE49E /* OwnerModelTests.swift */; };
 		98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E25F2CCD7E30003CE49E /* RepositoryModelTests.swift */; };
 		98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */; };
+		98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2642CCD85CC003CE49E /* PopularListRepositoryTests.swift */; };
+		98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2672CCDA11B003CE49E /* PopularListDataSourceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		98F1E25D2CCD7A4F003CE49E /* OwnerModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerModelTests.swift; sourceTree = "<group>"; };
 		98F1E25F2CCD7E30003CE49E /* RepositoryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryModelTests.swift; sourceTree = "<group>"; };
 		98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListModelTests.swift; sourceTree = "<group>"; };
+		98F1E2642CCD85CC003CE49E /* PopularListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListRepositoryTests.swift; sourceTree = "<group>"; };
+		98F1E2672CCDA11B003CE49E /* PopularListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListDataSourceTests.swift; sourceTree = "<group>"; };
 		A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -400,6 +404,8 @@
 		98F1E25B2CCD79D1003CE49E /* PopularList */ = {
 			isa = PBXGroup;
 			children = (
+				98F1E2662CCDA106003CE49E /* Data */,
+				98F1E2632CCD859E003CE49E /* Repository */,
 				98F1E25C2CCD79DC003CE49E /* Model */,
 			);
 			path = PopularList;
@@ -413,6 +419,22 @@
 				98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		98F1E2632CCD859E003CE49E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				98F1E2642CCD85CC003CE49E /* PopularListRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		98F1E2662CCDA106003CE49E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				98F1E2672CCDA11B003CE49E /* PopularListDataSourceTests.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		D60215BFE423CDB03B8652C7 /* Pods */ = {
@@ -703,6 +725,7 @@
 				98F1E2502CCD7846003CE49E /* GetPopularRepositoriesUseCaseTests.swift in Sources */,
 				98F1E2542CCD7876003CE49E /* RepositoryModel.swift in Sources */,
 				98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */,
+				98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */,
 				98F1E2562CCD7897003CE49E /* PopularListRepositoryProtocol.swift in Sources */,
 				98F1E2572CCD78B1003CE49E /* GetPopularRepositoriesUseCase.swift in Sources */,
 				98F1E24E2CCD7846003CE49E /* OwnerEntityTests.swift in Sources */,
@@ -716,6 +739,7 @@
 				61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */,
 				98F1E2522CCD7872003CE49E /* OwnerModel.swift in Sources */,
 				98F1E25E2CCD7A4F003CE49E /* OwnerModelTests.swift in Sources */,
+				98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */,
 				98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 //
-//  GetPopularRepositoriesUseCaseTests.swift
+//  PopularListRepositoryTests.swift
 //  Magalu ChallengeTests
 //
 //  Created by Rosemberg Torres on 26/10/24.
@@ -8,60 +8,63 @@
 import XCTest
 import RxSwift
 
-class MockPopularListRepository: PopularListRepositoryProtocol{
-    var result: Single<[RepositoryEntity]>!
+class MockPopularListDataSource: PopularListDataSourceProtocol{
+   
+    var result: Single<PopularListModel>!
     
-    func doRequestGetPopularList(page: Int) -> Single<[RepositoryEntity]> {
+    func doRequestGetPopularList(page: Int) -> Single<PopularListModel> {
         return result
     }
 }
 
-final class GetPopularRepositoriesUseCaseTests: XCTestCase {
+final class PopularListRepositoryTests: XCTestCase {
     
-    var useCase : GetPopularRepositoriesUseCase!
-    var mockRepository: MockPopularListRepository!
+    var mockDatasource : MockPopularListDataSource!
+    var repository: PopularListRepository!
     var disposeBag: DisposeBag!
     
     override func setUp() {
         super.setUp()
-        mockRepository = MockPopularListRepository()
-        useCase = GetPopularRepositoriesUseCase(repository: mockRepository!)
+        
+        mockDatasource = MockPopularListDataSource()
+        repository = PopularListRepository(dataSource: mockDatasource)
         disposeBag = DisposeBag()
     }
     
     override func tearDown() {
         disposeBag = nil
-        mockRepository = nil
-        useCase = nil
+        repository = nil
+        mockDatasource = nil
         super.tearDown()
     }
-    
-    func testCallWithSuccess() {
+
+    func testResultWithSuccess() {
         
-        let repositoryEntity1 = RepositoryEntity(name: "kotlin",
+        let repository1 = RepositoryModel(name: "kotlin",
                                                  description: "Square’s meticulous HTTP client for the JVM, Android, and GraalVM.",
                                                  stargazersCount: 49210,
                                                  watchersCount: 49210,
-                                                 owner: OwnerEntity(name: "JetBrains",
+                                                 owner: OwnerModel(name: "JetBrains",
                                                                     avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
-        let repositoryEntity2 = RepositoryEntity(name: "okhttp",
+        let repository2 = RepositoryModel(name: "okhttp",
                                                  description: "The Kotlin Programming Language.",
                                                  stargazersCount: 45831,
                                                  watchersCount: 45831,
-                                                 owner: OwnerEntity(name: "square",
+                                                 owner: OwnerModel(name: "square",
                                                                     avatar: "https://avatars.githubusercontent.com/u/82592?v=4"))
         
-        let expectedRepositories = [repositoryEntity1,repositoryEntity2]
-        
-        mockRepository.result = .just(expectedRepositories)
+        let expectedResult = PopularListModel(items: [repository1, repository2])
+                
+        mockDatasource.result = .just(expectedResult)
         
         let expectation = XCTestExpectation(description: "Should return repositories")
         
-        useCase.call(page: 1)
+        repository.doRequestGetPopularList(page: 1)
             .subscribe(
-                onSuccess: { repositories in
-                    XCTAssertEqual(repositories.count, expectedRepositories.count)
-                    XCTAssertEqual(repositories.first?.name, expectedRepositories.first?.name)
+                onSuccess: { result in
+                                    
+                    XCTAssertEqual(expectedResult.items.count, result.count)
+                    XCTAssertEqual(expectedResult.items.first?.name, result.first?.name)
                     expectation.fulfill()
                 },
                 onFailure: { _ in
@@ -73,12 +76,12 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
     
-    func testCallWithError() {
-        mockRepository.result = .error(NetworkError.decodeError(AppStrings.decodeError))
+    func testResultWithError() {
+        mockDatasource.result = .error(NetworkError.decodeError(AppStrings.decodeError))
             
             let expectation = XCTestExpectation(description: "Should return an error")
             
-            useCase.call(page: 1)
+            repository.doRequestGetPopularList(page: 1)
                 .subscribe(
                     onSuccess: { _ in
                         XCTFail("Expected error but got success")
@@ -100,8 +103,5 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
             
             wait(for: [expectation], timeout: 1.0)
         }
+
 }
-
-
-
-

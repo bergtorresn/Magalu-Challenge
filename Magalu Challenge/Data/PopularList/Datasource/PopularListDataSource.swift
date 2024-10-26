@@ -20,7 +20,7 @@ class PopularListDataSource: PopularListDataSourceProtocol {
         self.networkService = networkService
     }
     
-    func doRequestGetPopularList(page: Int) -> RxSwift.Single<PopularListModel> {
+    func doRequestGetPopularList(page: Int) -> Single<PopularListModel> {
         return self.networkService.doRequest(endpoint: AppStrings.popularRepositoriesEndpoint,
                                              method: .get,
                                              parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],

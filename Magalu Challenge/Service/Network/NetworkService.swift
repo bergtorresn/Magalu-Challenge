@@ -36,7 +36,7 @@ class NetworkService : NetworkServiceProtocol{
     func doRequest<T>(endpoint: String,
                       method: Alamofire.HTTPMethod,
                       parameters: [String : Any]?,
-                      headers: Alamofire.HTTPHeaders?) -> RxSwift.Single<T> where T : Decodable {
+                      headers: Alamofire.HTTPHeaders?) -> Single<T> where T : Decodable {
         
         var defaultHeards: HTTPHeaders = ["Content-Type": "application/json"]
         

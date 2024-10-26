@@ -68,38 +68,6 @@ class NetworkService : NetworkServiceProtocol{
         }
     }
     
-    func doRequest<T: Decodable>(
-        endpoint: String,
-        method: HTTPMethod = .get,
-        parameters: [String: Any]? = nil,
-        headers: HTTPHeaders? = nil,
-        responseType: T.Type,
-        completion: @escaping (Result<T, NetworkError>) -> Void){
-            
-            var defaultHeards: HTTPHeaders = ["Content-Type": "application/json"]
-            
-            if let customHeaders = headers {
-                for header in customHeaders {
-                    defaultHeards.add(header)
-                }
-            }
-            
-            session.request(baseURL + endpoint,
-                            method: method,
-                            parameters: parameters,
-                            encoding: URLEncoding.queryString,
-                            headers: defaultHeards)
-            .validate()
-            .responseDecodable(of: responseType) { response in
-                switch response.result {
-                case .success(let data):
-                    completion(.success(data))
-                case .failure(let error):
-                    completion(.failure(self.handlerErrors(error: error)))
-                }
-            }
-        }
-    
     private func handlerErrors(error: AFError) -> NetworkError {
         if error.isResponseSerializationError {
             return .decodeError("Decode Error")

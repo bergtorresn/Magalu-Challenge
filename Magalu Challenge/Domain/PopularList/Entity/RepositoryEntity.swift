@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct RepositoryEntity{
+struct RepositoryEntity : Identifiable {
+    let id = UUID()
     var name: String
     var fullName: String
     var description: String

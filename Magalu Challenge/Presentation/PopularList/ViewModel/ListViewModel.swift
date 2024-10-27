@@ -8,12 +8,26 @@
 import Foundation
 import RxSwift
 
-enum ListPageState {
+enum ListPageState: Equatable {
     case Init
     case Loading
-    case SuccessfullyFetched([RepositoryEntity])
-    case NoResultsFound
+    case Success([RepositoryEntity])
     case ApiError(String)
+    
+    static func == (lhs: ListPageState, rhs: ListPageState) -> Bool {
+        switch (lhs, rhs) {
+        case (.Init, .Init):
+            return true
+        case (.Loading, .Loading):
+            return true
+        case (.Success(let lhsSuccess), .Success(let rhsSuccess)):
+            return lhsSuccess == rhsSuccess
+        case (.ApiError(let lhsError), .ApiError(let rhsError)):
+            return lhsError == rhsError
+        default:
+            return false
+        }
+    }
 }
 
 class ListViewModel: ObservableObject {
@@ -35,12 +49,22 @@ class ListViewModel: ObservableObject {
             .subscribe(
                 onSuccess: { [weak self] success in
                     if success.isEmpty {
-                        self?.uiState = .NoResultsFound
+                        self?.uiState = .Success([])
                     } else {
-                        self?.uiState = .SuccessfullyFetched(success)
+                        self?.uiState = .Success(success)
                     }
                 }, onFailure: { [weak self] failure in
-                    self?.uiState = .ApiError(failure.localizedDescription)
+                    var errorMessage: String  = ""
+                    let err = failure as! NetworkError
+                    switch err {
+                    case .decodeError(let d):
+                        errorMessage = d
+                    case .serverError(let s):
+                        errorMessage = s
+                    default:
+                        errorMessage = AppStrings.unknownError
+                    }
+                    self?.uiState = .ApiError(errorMessage)
                 }).disposed(by: disposeBag)
     }
 }

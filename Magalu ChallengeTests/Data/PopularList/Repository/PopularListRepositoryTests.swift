@@ -40,13 +40,15 @@ final class PopularListRepositoryTests: XCTestCase {
 
     func testResultWithSuccess() {
         
-        let repository1 = RepositoryModel(name: "kotlin",
+        let repository1 = RepositoryModel(id: 1,
+                                          name: "kotlin",
                                                  description: "Square’s meticulous HTTP client for the JVM, Android, and GraalVM.",
                                                  stargazersCount: 49210,
                                                  watchersCount: 49210,
                                                  owner: OwnerModel(name: "JetBrains",
                                                                     avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
-        let repository2 = RepositoryModel(name: "okhttp",
+        let repository2 = RepositoryModel(id: 1,
+                                          name: "okhttp",
                                                  description: "The Kotlin Programming Language.",
                                                  stargazersCount: 45831,
                                                  watchersCount: 45831,

@@ -11,7 +11,6 @@ import RxSwift
 
 enum NetworkError: Error {
     case unknownError(String)
-    case notFound(String)
     case serverError(String)
     case decodeError(String)
 }
@@ -74,7 +73,7 @@ class NetworkService : NetworkServiceProtocol{
             if let statusCode = error.responseCode {
                 switch statusCode {
                 case 400...499:
-                    return .notFound(AppStrings.notFoundError)
+                    return .serverError(AppStrings.notFoundError)
                 case 500...599:
                     return .serverError(AppStrings.serverError)
                 default:

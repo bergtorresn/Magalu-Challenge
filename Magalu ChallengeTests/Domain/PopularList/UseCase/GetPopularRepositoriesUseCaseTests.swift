@@ -38,13 +38,15 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
     
     func testCallWithSuccess() {
         
-        let repositoryEntity1 = RepositoryEntity(name: "kotlin",
+        let repositoryEntity1 = RepositoryEntity(id:1,
+                                                 name: "kotlin",
                                                  description: "Square’s meticulous HTTP client for the JVM, Android, and GraalVM.",
                                                  stargazersCount: 49210,
                                                  watchersCount: 49210,
                                                  owner: OwnerEntity(name: "JetBrains",
                                                                     avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
-        let repositoryEntity2 = RepositoryEntity(name: "okhttp",
+        let repositoryEntity2 = RepositoryEntity(id: 2,
+                                                 name: "okhttp",
                                                  description: "The Kotlin Programming Language.",
                                                  stargazersCount: 45831,
                                                  watchersCount: 45831,

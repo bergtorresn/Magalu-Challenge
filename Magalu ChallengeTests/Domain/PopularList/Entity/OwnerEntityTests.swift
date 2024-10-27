@@ -26,4 +26,28 @@ final class OwnerEntityTests: XCTestCase {
         XCTAssertEqual(ownerModel.name, ownerEntity.name)
         XCTAssertEqual(ownerModel.avatar, ownerEntity.avatar)
     }
+    
+    func testEntityEqualityShouldBeEqual() {
+        
+        let owner1 = OwnerEntity(name: "JetBrains",
+                                avatar: "https://avatars.githubusercontent.com/u/878437?v=4")
+        
+
+        let owner2 = OwnerEntity(name: "JetBrains",
+                                avatar: "https://avatars.githubusercontent.com/u/878437?v=4")
+        
+        XCTAssertEqual(owner1, owner2, "The instances should be equals")
+    }
+    
+    func testEntityEqualityShouldNotBeEqual() {
+        
+        let owner1 = OwnerEntity(name: "JetBrains",
+                                avatar: "https://avatars.githubusercontent.com/u/878437?v=4")
+        
+    
+        let owner2 = OwnerEntity(name: "bannedbook",
+                                avatar: "https://avatars.githubusercontent.com/u/4361923?v=4")
+        
+        XCTAssertNotEqual(owner1, owner2, "The instances should be not equals")
+    }
 }

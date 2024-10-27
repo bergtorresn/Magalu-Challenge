@@ -38,7 +38,7 @@ struct ListView: View {
         case .Loading:
             return AnyView(Text("Loading"))
             
-        case .SuccessfullyFetched(let items):
+        case .Success(let items):
             return AnyView(
                 NavigationView {
                     List(items) { item in
@@ -50,9 +50,6 @@ struct ListView: View {
                         .listStyle(.plain)
                         .listRowBackground(Color.clear)
                 }.navigationTitle("Hello World"))
-            
-        case .NoResultsFound:
-            return AnyView(Text("No data found"))
             
         case .ApiError(let errorMessage):
             return AnyView(Text(errorMessage))

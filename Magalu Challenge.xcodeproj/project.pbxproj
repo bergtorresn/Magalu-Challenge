@@ -30,6 +30,8 @@
 		9897B4052CCC2D6500651C91 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B4042CCC2D6500651C91 /* ListView.swift */; };
 		9897B4082CCC2E6F00651C91 /* ItemDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B4072CCC2E6F00651C91 /* ItemDetailView.swift */; };
 		9897B40B2CCC3DA400651C91 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B40A2CCC3DA400651C91 /* ListViewModel.swift */; };
+		98B793192CCE8E24006769DF /* ListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B793182CCE8E24006769DF /* ListViewModelTests.swift */; };
+		98B7931A2CCE8F2C006769DF /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B40A2CCC3DA400651C91 /* ListViewModel.swift */; };
 		98F1E2422CCD7774003CE49E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		98F1E2452CCD7792003CE49E /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2432CCD7792003CE49E /* AppStrings.swift */; };
 		98F1E2462CCD77C3003CE49E /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2432CCD7792003CE49E /* AppStrings.swift */; };
@@ -96,6 +98,7 @@
 		9897B4042CCC2D6500651C91 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		9897B4072CCC2E6F00651C91 /* ItemDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailView.swift; sourceTree = "<group>"; };
 		9897B40A2CCC3DA400651C91 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		98B793182CCE8E24006769DF /* ListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModelTests.swift; sourceTree = "<group>"; };
 		98F1E2432CCD7792003CE49E /* AppStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
 		98F1E2472CCD7846003CE49E /* OwnerEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerEntityTests.swift; sourceTree = "<group>"; };
 		98F1E2482CCD7846003CE49E /* RepositoryEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryEntityTests.swift; sourceTree = "<group>"; };
@@ -191,6 +194,7 @@
 			children = (
 				98F1E25A2CCD79CA003CE49E /* Data */,
 				98F1E24D2CCD7846003CE49E /* Domain */,
+				98B793152CCE8DEB006769DF /* Presentation */,
 				61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */,
 			);
 			path = "Magalu ChallengeTests";
@@ -347,6 +351,30 @@
 			isa = PBXGroup;
 			children = (
 				9897B40A2CCC3DA400651C91 /* ListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		98B793152CCE8DEB006769DF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				98B793162CCE8E03006769DF /* PopularList */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		98B793162CCE8E03006769DF /* PopularList */ = {
+			isa = PBXGroup;
+			children = (
+				98B793172CCE8E10006769DF /* ViewModel */,
+			);
+			path = PopularList;
+			sourceTree = "<group>";
+		};
+		98B793172CCE8E10006769DF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				98B793182CCE8E24006769DF /* ListViewModelTests.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -723,6 +751,7 @@
 			files = (
 				98F1E2552CCD787C003CE49E /* RepositoryEntity.swift in Sources */,
 				98F1E2502CCD7846003CE49E /* GetPopularRepositoriesUseCaseTests.swift in Sources */,
+				98B793192CCE8E24006769DF /* ListViewModelTests.swift in Sources */,
 				98F1E2542CCD7876003CE49E /* RepositoryModel.swift in Sources */,
 				98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */,
 				98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */,
@@ -730,6 +759,7 @@
 				98F1E2572CCD78B1003CE49E /* GetPopularRepositoriesUseCase.swift in Sources */,
 				98F1E24E2CCD7846003CE49E /* OwnerEntityTests.swift in Sources */,
 				98F1E2592CCD78C1003CE49E /* PopularListDataSource.swift in Sources */,
+				98B7931A2CCE8F2C006769DF /* ListViewModel.swift in Sources */,
 				98F1E2462CCD77C3003CE49E /* AppStrings.swift in Sources */,
 				98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */,
 				98F1E2512CCD7863003CE49E /* OwnerEntity.swift in Sources */,

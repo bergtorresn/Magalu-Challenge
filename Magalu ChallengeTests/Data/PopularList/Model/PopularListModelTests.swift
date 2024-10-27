@@ -10,14 +10,16 @@ import XCTest
 final class PopularListModelTests: XCTestCase {
     
     func testPopularListtInit() {
-        let repository1 = RepositoryModel(name: "kotlin",
+        let repository1 = RepositoryModel(id: 1,
+                                          name: "kotlin",
                                           description: "The Kotlin Programming Language.",
                                           stargazersCount: 49210,
                                           watchersCount: 49210,
                                           owner: OwnerModel(name: "JetBrains",
                                                             avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
         
-        let repository2 = RepositoryModel(name: "kotlin",
+        let repository2 = RepositoryModel(id: 1,
+                                          name: "kotlin",
                                           description: "The Kotlin Programming Language.",
                                           stargazersCount: 49210,
                                           watchersCount: 49210,
@@ -34,6 +36,7 @@ final class PopularListModelTests: XCTestCase {
             {
                "items":[
                   {
+                     "id": 1,
                      "name":"kotlin",
                      "owner":{
                         "login":"JetBrains",
@@ -44,6 +47,7 @@ final class PopularListModelTests: XCTestCase {
                      "watchers_count":49210
                   },
                   {
+                     "id": 2,
                      "name":"kotlin",
                      "owner":{
                         "login":"JetBrains",

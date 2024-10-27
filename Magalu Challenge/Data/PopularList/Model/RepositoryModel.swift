@@ -9,17 +9,20 @@ import Foundation
 
 struct RepositoryModel : Codable {
     
+    var id: Int = 1
     var name: String = ""
     var description: String = ""
     var stargazersCount: Int = 0
     var watchersCount: Int = 0
     var owner: OwnerModel = OwnerModel(name: "", avatar: "")
     
-    init(name: String, 
+    init(id: Int,
+         name: String,
          description: String,
          stargazersCount: Int,
          watchersCount: Int,
          owner: OwnerModel) {
+        self.id = id
         self.name = name
         self.description = description
         self.stargazersCount = stargazersCount
@@ -30,6 +33,6 @@ struct RepositoryModel : Codable {
     enum CodingKeys: String, CodingKey {
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
-        case name, description, owner
+        case name, description, owner, id
     }
 }

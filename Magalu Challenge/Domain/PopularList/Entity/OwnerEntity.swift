@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OwnerEntity {
+struct OwnerEntity: Equatable {
     
     var name: String
     var avatar: String
@@ -20,5 +20,4 @@ struct OwnerEntity {
     static func toOwnerEntity(input response: OwnerModel) -> OwnerEntity {
         return OwnerEntity(name: response.name, avatar: response.avatar)
     }
-
 }

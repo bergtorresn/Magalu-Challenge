@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct RepositoryEntity : Identifiable {
-    let id = UUID()
+struct RepositoryEntity: Identifiable, Equatable {
+    let id: Int
     var name: String
     var description: String
     var stargazersCount: Int
     var watchersCount: Int
     var owner: OwnerEntity
     
-    init(name: String, description: String, stargazersCount: Int, watchersCount: Int, owner: OwnerEntity) {
+    init(id: Int, name: String, description: String, stargazersCount: Int, watchersCount: Int, owner: OwnerEntity) {
+        self.id = id
         self.name = name
         self.description = description
         self.stargazersCount = stargazersCount
@@ -25,7 +26,8 @@ struct RepositoryEntity : Identifiable {
     
     static func toRepositoryEntity(input response: [RepositoryModel]) -> [RepositoryEntity] {
         return response.map { result in
-            return RepositoryEntity(name: result.name,
+            return RepositoryEntity(id: result.id,
+                                    name: result.name,
                                     description: result.description,
                                     stargazersCount: result.stargazersCount,
                                     watchersCount: result.watchersCount,
@@ -33,4 +35,12 @@ struct RepositoryEntity : Identifiable {
         }
     }
     
+    static func == (lhs: RepositoryEntity, rhs: RepositoryEntity) -> Bool {
+        return lhs.id == rhs.id
+        && lhs.name == rhs.name
+        && lhs.description == rhs.description
+        && lhs.stargazersCount == rhs.stargazersCount
+        && lhs.watchersCount == rhs.watchersCount
+        && lhs.owner == rhs.owner
+    }
 }

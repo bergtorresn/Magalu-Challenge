@@ -1,5 +1,5 @@
 //
-//  PopularListTableView.swift
+//  ItemDetailView.swift
 //  Magalu Challenge
 //
 //  Created by Rosemberg Torres on 25/10/24.
@@ -7,11 +7,14 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct ItemDetailsUIView: View {
+    let repository: RepositoryEntity
+
+    @ObservedObject private var viewModel: ItemDetailViewModel
     
-    @ObservedObject private var viewModel: ListViewModel
-    
-    init(viewModel: ListViewModel) {
+    init(repository: RepositoryEntity, 
+         viewModel: ItemDetailViewModel) {
+        self.repository = repository
         self.viewModel = viewModel
     }
     
@@ -23,7 +26,7 @@ struct ListView: View {
             .toolbarBackground(Color.green, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
         }.onAppear(perform: {
-            viewModel.doRequestGetPopularRepositories(page: 1)
+            viewModel.doRequestGetPullRequestsUseCase(repository: repository)
         })
         
     }
@@ -35,24 +38,23 @@ struct ListView: View {
             return AnyView(EmptyView())
             
         case .Loading:
-            return AnyView(Text(AppStrings.stateLoading))
+            return AnyView(Text("Loading"))
             
         case .Success(let items):
             return AnyView(
                 NavigationView {
                     List(items) { item in
-                        NavigationLink(destination: ItemDetailsUIView(repository: item, viewModel: ItemDetailViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService())))))){
-                            ItemView(item: item)
+                        NavigationLink(destination: WebViewUIView(repositoryURL: item.url)){
+                            PullRequestItemUIView(item: item)
                             Spacer(minLength: 50)
                         }
                     }.listRowSpacing(10)
                         .listStyle(.plain)
                         .listRowBackground(Color.clear)
-                }.navigationTitle(AppStrings.navigationTitle))
+                }.navigationTitle(repository.name))
             
         case .ApiError(let errorMessage):
             return AnyView(Text(errorMessage))
         }
     }
 }
-

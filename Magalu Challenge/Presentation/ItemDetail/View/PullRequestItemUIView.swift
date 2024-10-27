@@ -19,13 +19,16 @@ struct PullRequestItemUIView: View {
                 .font(.subheadline)
                 .lineLimit(3)
             HStack(content: {
-                Image(systemName: "sunglasses.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 32, height: 32)
-                    .foregroundStyle(.white)
-                    .padding(8)
-                    .background(.purple, in: .circle)
+                AsyncImage(url: URL(string: item.user.avatar)) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                        .padding()
+                        .frame(width: 32, height: 32)
+                        .background(Color.gray.opacity(0.7))
+                        .clipShape(Circle())
+                }.frame(width: 32, height: 32)
+                    .clipShape(Circle())
                 VStack(content: {
                     Text(item.user.name)
                         .font(.headline)

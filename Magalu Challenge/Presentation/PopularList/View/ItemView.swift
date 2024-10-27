@@ -23,13 +23,16 @@ struct ItemView: View {
                 })
                 Spacer()
                 VStack(alignment: .center, content: {
-                    Image(systemName: "sunglasses.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 32, height: 32)
-                        .foregroundStyle(.white)
-                        .padding(8)
-                        .background(.purple, in: .circle)
+                    AsyncImage(url: URL(string: item.owner.avatar)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                            .padding()
+                            .frame(width: 32, height: 32)
+                            .background(Color.gray.opacity(0.7))
+                            .clipShape(Circle())
+                    }.frame(width: 32, height: 32)
+                        .clipShape(Circle())
                     Text(item.owner.name)
                         .font(.headline)
                         .lineLimit(nil)

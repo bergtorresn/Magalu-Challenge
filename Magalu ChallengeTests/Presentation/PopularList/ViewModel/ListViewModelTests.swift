@@ -95,7 +95,7 @@ final class ListViewModelTests: XCTestCase {
         
         let expectation = XCTestExpectation(description: "state must be success without data")
         
-        var mockRepositories:[RepositoryEntity] = []
+        let mockRepositories:[RepositoryEntity] = []
         
         mockUseCase.result = .success(mockRepositories)
         

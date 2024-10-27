@@ -1,5 +1,5 @@
 //
-//  PopularListView.swift
+//  ItemRepositoryUIView.swift
 //  Magalu Challenge
 //
 //  Created by Rosemberg Torres on 25/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct ItemRepositoryUIView: View {
     let item: RepositoryEntity
     
     var body: some View {
@@ -40,25 +40,19 @@ struct ItemView: View {
             })
             HStack(content: {
                 HStack(content: {
-                    Image(systemName: "sunglasses.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 14, height: 14)
-                        .foregroundStyle(.white)
-                        .padding(8)
-                        .background(.purple, in: .circle)
+                    Image(systemName: "star")
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundStyle(.yellow)
+                        .font(.system(size: 20))
                     Text("\(item.stargazersCount)")
                         .font(.body)
                         .lineLimit(1)
                 })
                 HStack(content: {
-                    Image(systemName: "sunglasses.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 14, height: 14)
-                        .foregroundStyle(.white)
-                        .padding(8)
-                        .background(.purple, in: .circle)
+                    Image(systemName: "personalhotspot")
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundStyle(.yellow)
+                        .font(.system(size: 20))
                     Text("\(item.watchersCount)")
                         .font(.body)
                         .lineLimit(1)

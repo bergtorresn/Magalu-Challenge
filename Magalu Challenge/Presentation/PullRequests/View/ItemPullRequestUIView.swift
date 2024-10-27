@@ -1,5 +1,5 @@
 //
-//  PullRequestItemUIView.swift
+//  ItemPullRequestUIView.swift
 //  Magalu Challenge
 //
 //  Created by Rosemberg Torres on 27/10/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct PullRequestItemUIView: View {
+struct ItemPullRequestUIView: View {
     let item: PullRequestEntity
     
     var body: some View {

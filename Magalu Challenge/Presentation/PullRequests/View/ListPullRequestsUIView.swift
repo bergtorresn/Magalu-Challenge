@@ -1,5 +1,5 @@
 //
-//  ItemDetailView.swift
+//  ListPullRequestsUIView.swift
 //  Magalu Challenge
 //
 //  Created by Rosemberg Torres on 25/10/24.
@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ItemDetailsUIView: View {
+struct ListPullRequestsUIView: View {
     let repository: RepositoryEntity
     
-    @ObservedObject private var viewModel: ItemDetailViewModel
+    @ObservedObject private var viewModel: ListPullRequestsViewModel
     
     init(repository: RepositoryEntity,
-         viewModel: ItemDetailViewModel) {
+         viewModel: ListPullRequestsViewModel) {
         self.repository = repository
         self.viewModel = viewModel
     }
@@ -43,7 +43,7 @@ struct ItemDetailsUIView: View {
                 NavigationView {
                     List(items) { item in
                         NavigationLink(destination: WebViewUIView(repositoryURL: item.url)){
-                            PullRequestItemUIView(item: item)
+                            ItemPullRequestUIView(item: item)
                             Spacer(minLength: 50)
                         }
                     }.listRowSpacing(10)

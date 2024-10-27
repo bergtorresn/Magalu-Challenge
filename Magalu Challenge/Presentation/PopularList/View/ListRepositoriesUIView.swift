@@ -1,5 +1,5 @@
 //
-//  PopularListTableView.swift
+//  ListRepositoriesUIView.swift
 //  Magalu Challenge
 //
 //  Created by Rosemberg Torres on 25/10/24.
@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct ListView: View {
+struct ListRepositoriesUIView: View {
     
-    @ObservedObject private var viewModel: ListViewModel
+    @ObservedObject private var viewModel: ListRepositoriesViewModel
     
-    init(viewModel: ListViewModel) {
+    init(viewModel: ListRepositoriesViewModel) {
         self.viewModel = viewModel
     }
     
@@ -39,8 +39,8 @@ struct ListView: View {
             return AnyView(
                 NavigationView {
                     List(items) { item in
-                        NavigationLink(destination: ItemDetailsUIView(repository: item, viewModel: ItemDetailViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService()))))).toolbarRole(.editor)){
-                            ItemView(item: item)
+                        NavigationLink(destination: ListPullRequestsUIView(repository: item, viewModel: ListPullRequestsViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService()))))).toolbarRole(.editor)){
+                            ItemRepositoryUIView(item: item)
                             Spacer(minLength: 50)
                         }
                     }.listRowSpacing(10)

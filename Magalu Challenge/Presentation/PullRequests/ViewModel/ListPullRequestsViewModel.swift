@@ -1,20 +1,21 @@
 //
-//  ListViewModel.swift
+//  ListPullRequestsViewModel.swift
 //  Magalu Challenge
 //
-//  Created by Rosemberg Torres on 25/10/24.
+//  Created by Rosemberg Torres on 27/10/24.
 //
 
 import Foundation
+
 import RxSwift
 
-enum ListPageState: Equatable {
+enum ListPullRequestsState: Equatable {
     case Init
     case Loading
-    case Success([RepositoryEntity])
+    case Success([PullRequestEntity])
     case ApiError(String)
     
-    static func == (lhs: ListPageState, rhs: ListPageState) -> Bool {
+    static func == (lhs: ListPullRequestsState, rhs: ListPullRequestsState) -> Bool {
         switch (lhs, rhs) {
         case (.Init, .Init):
             return true
@@ -30,21 +31,21 @@ enum ListPageState: Equatable {
     }
 }
 
-class ListViewModel: ObservableObject {
+class ListPullRequestsViewModel: ObservableObject {
     
-    @Published var uiState: ListPageState = .Init
+    @Published var uiState: ListPullRequestsState = .Init
     
-    let usecase: GetPopularRepositoriesUseCaseProtocol
+    let usecase: GetPullRequestsUseCaseProtocol
     private let disposeBag = DisposeBag()
     
-    init(usecase: GetPopularRepositoriesUseCaseProtocol) {
+    init(usecase: GetPullRequestsUseCaseProtocol) {
         self.usecase = usecase
     }
     
-    func doRequestGetPopularRepositories(page: Int){
+    func doRequestGetPullRequestsUseCase(repository: RepositoryEntity){
         self.uiState = .Loading
         
-        self.usecase.call(page: page)
+        self.usecase.call(ownerName: repository.owner.name, repositoryName: repository.name)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] success in
@@ -68,3 +69,4 @@ class ListViewModel: ObservableObject {
                 }).disposed(by: disposeBag)
     }
 }
+

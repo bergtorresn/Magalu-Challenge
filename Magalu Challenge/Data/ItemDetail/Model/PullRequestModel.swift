@@ -38,11 +38,27 @@ class PullRequestModel: Codable {
         self.id = try container.decode(Int.self, forKey: .id)
         self.user = try container.decode(PullRequestUserModel.self, forKey: .user)
         self.title = try container.decode(String.self, forKey: .title)
+        self.createdAt = parseCreatedAtDate(dateFromJson: self.createdAt)
     }
     
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
         case url = "html_url"
         case body, id, user, title
+    }
+    
+    func parseCreatedAtDate(dateFromJson: String) -> String {
+        let dateReciveFormatter = DateFormatter()
+        dateReciveFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        let dateReturnFormatter = DateFormatter()
+        dateReturnFormatter.dateFormat = "dd/MM/yyyy 'ás' HH:mm:ss"
+
+        if let date = dateReciveFormatter.date(from: dateFromJson) {
+            let dateString = dateReturnFormatter.string(from: date)
+            return dateString
+        } else {
+            return dateFromJson
+        }
     }
 }

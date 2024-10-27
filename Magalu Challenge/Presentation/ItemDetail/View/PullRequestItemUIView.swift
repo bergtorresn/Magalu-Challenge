@@ -36,7 +36,7 @@ struct PullRequestItemUIView: View {
                 })
             })
             Text(item.createdAt)
-                .font(.body)
+                .font(.caption)
                 .lineLimit(nil)
         })
     }

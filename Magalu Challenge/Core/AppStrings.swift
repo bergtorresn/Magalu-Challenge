@@ -24,6 +24,5 @@ class AppStrings {
     
     // ========== PULL REQUEST VIEW STRINGS
     
-    static let navigationTitle: String = "Repositories"
-
+    static let navigationTitle: String = "Github Popular Repositories"
 }

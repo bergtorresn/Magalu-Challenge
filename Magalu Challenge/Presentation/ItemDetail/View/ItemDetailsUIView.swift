@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ItemDetailsUIView: View {
     let repository: RepositoryEntity
-
+    
     @ObservedObject private var viewModel: ItemDetailViewModel
     
-    init(repository: RepositoryEntity, 
+    init(repository: RepositoryEntity,
          viewModel: ItemDetailViewModel) {
         self.repository = repository
         self.viewModel = viewModel
@@ -23,8 +23,6 @@ struct ItemDetailsUIView: View {
             VStack {
                 containedView()
             }
-            .toolbarBackground(Color.green, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }.onAppear(perform: {
             viewModel.doRequestGetPullRequestsUseCase(repository: repository)
         })
@@ -38,8 +36,8 @@ struct ItemDetailsUIView: View {
             return AnyView(EmptyView())
             
         case .Loading:
-            return AnyView(Text("Loading"))
-            
+            return AnyView(LoadingView())
+
         case .Success(let items):
             return AnyView(
                 NavigationView {

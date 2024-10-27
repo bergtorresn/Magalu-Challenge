@@ -20,8 +20,6 @@ struct ListView: View {
             VStack {
                 containedView()
             }
-            .toolbarBackground(Color.green, for: .navigationBar)
-            .toolbarBackground(.visible, for: .navigationBar)
         }.onAppear(perform: {
             viewModel.doRequestGetPopularRepositories(page: 1)
         })
@@ -35,20 +33,22 @@ struct ListView: View {
             return AnyView(EmptyView())
             
         case .Loading:
-            return AnyView(Text(AppStrings.stateLoading))
+            return AnyView(LoadingView())
             
         case .Success(let items):
             return AnyView(
                 NavigationView {
                     List(items) { item in
-                        NavigationLink(destination: ItemDetailsUIView(repository: item, viewModel: ItemDetailViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService())))))){
+                        NavigationLink(destination: ItemDetailsUIView(repository: item, viewModel: ItemDetailViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService()))))).toolbarRole(.editor)){
                             ItemView(item: item)
                             Spacer(minLength: 50)
                         }
                     }.listRowSpacing(10)
                         .listStyle(.plain)
                         .listRowBackground(Color.clear)
-                }.navigationTitle(AppStrings.navigationTitle))
+                }.navigationTitle(AppStrings.navigationTitle)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .tint(.black))
             
         case .ApiError(let errorMessage):
             return AnyView(Text(errorMessage))

@@ -12,7 +12,7 @@ import RxSwift
 enum ListPullRequestsState: Equatable {
     case Init
     case Loading
-    case Success([PullRequestEntity])
+    case Success
     case ApiError(String)
     
     static func == (lhs: ListPullRequestsState, rhs: ListPullRequestsState) -> Bool {
@@ -21,8 +21,8 @@ enum ListPullRequestsState: Equatable {
             return true
         case (.Loading, .Loading):
             return true
-        case (.Success(let lhsSuccess), .Success(let rhsSuccess)):
-            return lhsSuccess == rhsSuccess
+        case (.Success, .Success):
+            return true
         case (.ApiError(let lhsError), .ApiError(let rhsError)):
             return lhsError == rhsError
         default:
@@ -34,7 +34,8 @@ enum ListPullRequestsState: Equatable {
 class ListPullRequestsViewModel: ObservableObject {
     
     @Published var uiState: ListPullRequestsState = .Init
-    
+    @Published var items: [PullRequestEntity] = []
+
     let usecase: GetPullRequestsUseCaseProtocol
     private let disposeBag = DisposeBag()
     
@@ -42,18 +43,15 @@ class ListPullRequestsViewModel: ObservableObject {
         self.usecase = usecase
     }
     
-    func doRequestGetPullRequestsUseCase(repository: RepositoryEntity){
+    func doRequestGetPullRequestsUseCase(ownerName: String, repositoryName: String) {
         self.uiState = .Loading
         
-        self.usecase.call(ownerName: repository.owner.name, repositoryName: repository.name)
+        self.usecase.call(ownerName: ownerName, repositoryName: repositoryName)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] success in
-                    if success.isEmpty {
-                        self?.uiState = .Success([])
-                    } else {
-                        self?.uiState = .Success(success)
-                    }
+                    self?.items.append(contentsOf: success)
+                    self?.uiState = .Success
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.uiState = .ApiError(err.description)

@@ -33,6 +33,9 @@
 		9843F52E2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */; };
 		9843F52F2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */; };
 		9843F5322CCFFA5D00A01E27 /* PullRequestsDatasourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5312CCFFA5D00A01E27 /* PullRequestsDatasourceTests.swift */; };
+		9843F5352CCFFCC900A01E27 /* ListPullRequestsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5342CCFFCC900A01E27 /* ListPullRequestsViewModelTests.swift */; };
+		9843F5372CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */; };
+		9843F5382CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */; };
 		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
 		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
@@ -128,6 +131,8 @@
 		9843F52B2CCFF89900A01E27 /* PullRequestsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsRepositoryTests.swift; sourceTree = "<group>"; };
 		9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPullRequestsDataSource.swift; sourceTree = "<group>"; };
 		9843F5312CCFFA5D00A01E27 /* PullRequestsDatasourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsDatasourceTests.swift; sourceTree = "<group>"; };
+		9843F5342CCFFCC900A01E27 /* ListPullRequestsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPullRequestsViewModelTests.swift; sourceTree = "<group>"; };
+		9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPullRequestsUseCase.swift; sourceTree = "<group>"; };
 		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
 		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
@@ -257,6 +262,7 @@
 				9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */,
 				9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */,
 				9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */,
+				9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -283,6 +289,7 @@
 		9843F5132CCFEE9800A01E27 /* PullRequests */ = {
 			isa = PBXGroup;
 			children = (
+				9843F5332CCFFCB700A01E27 /* ViewModel */,
 			);
 			path = PullRequests;
 			sourceTree = "<group>";
@@ -327,6 +334,14 @@
 				9843F5312CCFFA5D00A01E27 /* PullRequestsDatasourceTests.swift */,
 			);
 			path = Datasource;
+			sourceTree = "<group>";
+		};
+		9843F5332CCFFCB700A01E27 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9843F5342CCFFCC900A01E27 /* ListPullRequestsViewModelTests.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9897B3DE2CCC2A4600651C91 /* Network */ = {
@@ -881,6 +896,7 @@
 			files = (
 				9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */,
 				9897B3F92CCC2A4600651C91 /* OwnerEntity.swift in Sources */,
+				9843F5372CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift in Sources */,
 				9897B3F62CCC2A4600651C91 /* PopularListModel.swift in Sources */,
 				98B7932B2CCEA20F006769DF /* PullRequestsDatasource.swift in Sources */,
 				9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */,
@@ -952,8 +968,10 @@
 				98F1E2512CCD7863003CE49E /* OwnerEntity.swift in Sources */,
 				98B793332CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				98F1E2532CCD7874003CE49E /* PopularListModel.swift in Sources */,
+				9843F5382CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift in Sources */,
 				9843F5242CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */,
 				98F1E2422CCD7774003CE49E /* NetworkService.swift in Sources */,
+				9843F5352CCFFCC900A01E27 /* ListPullRequestsViewModelTests.swift in Sources */,
 				9843F5062CCFE5D500A01E27 /* TestDependencyInjector.swift in Sources */,
 				98F1E24F2CCD7846003CE49E /* RepositoryEntityTests.swift in Sources */,
 				9843F51D2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift in Sources */,

@@ -31,7 +31,7 @@ final class ListViewModelTests: XCTestCase {
     }
     
     func testDoRequestGetPopularRepositoriesWithoutPaginationAndSuccessState() {
-                
+        
         let mockRepositories: [RepositoryEntity] = [RepositoryEntity(id: 1,
                                                                      name: "kotlin",
                                                                      description: "The Kotlin Programming Language.",
@@ -43,49 +43,49 @@ final class ListViewModelTests: XCTestCase {
         mockUseCase.result = .success(mockRepositories)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
-
+        
         XCTAssertEqual(self.viewModel.items.count, mockRepositories.count)
         XCTAssertEqual(self.viewModel.uiState, .Success)
     }
     
     func testDoRequestGetPopularRepositoriesWithPaginationAndSuccessState() {
-                
+        
         let mockRepositories1: [RepositoryEntity] = [RepositoryEntity(id: 1,
-                                                                     name: "kotlin",
-                                                                     description: "The Kotlin Programming Language.",
-                                                                     stargazersCount: 49210,
-                                                                     watchersCount: 49210,
-                                                                     owner: OwnerEntity(name: "JetBrains",
-                                                                                        avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
+                                                                      name: "kotlin",
+                                                                      description: "The Kotlin Programming Language.",
+                                                                      stargazersCount: 49210,
+                                                                      watchersCount: 49210,
+                                                                      owner: OwnerEntity(name: "JetBrains",
+                                                                                         avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
         let mockRepositories2: [RepositoryEntity] = [RepositoryEntity(id: 2,
-                                                                     name: "kotlin2",
-                                                                     description: "The Kotlin Programming Language.2",
-                                                                     stargazersCount: 49210,
-                                                                     watchersCount: 49210,
-                                                                     owner: OwnerEntity(name: "JetBrains",
-                                                                                        avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
+                                                                      name: "kotlin2",
+                                                                      description: "The Kotlin Programming Language.2",
+                                                                      stargazersCount: 49210,
+                                                                      watchersCount: 49210,
+                                                                      owner: OwnerEntity(name: "JetBrains",
+                                                                                         avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
         mockUseCase.result = .success(mockRepositories1)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
-
+        
         XCTAssertEqual(self.viewModel.items.count, mockRepositories1.count)
         XCTAssertEqual(self.viewModel.uiState, .Success)
-
+        
         mockUseCase.result = .success(mockRepositories2)
-
+        
         viewModel.doRequestGetPopularRepositories(isPagination: true)
         
         XCTAssertEqual(self.viewModel.items.count, 2)
     }
     
     func testDoRequestGetPopularRepositoriesWithFailureStateAndUnknownError() {
-                
+        
         mockUseCase.result = .failure(NetworkError.unknownError(AppStrings.unknownError))
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
-
+        
         XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.unknownError))
     }
     
@@ -94,7 +94,7 @@ final class ListViewModelTests: XCTestCase {
         mockUseCase.result = .failure(NetworkError.decodeError(AppStrings.decodeError))
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
-
+        
         XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.decodeError))
     }
     
@@ -103,7 +103,7 @@ final class ListViewModelTests: XCTestCase {
         mockUseCase.result = .failure(NetworkError.serverError(AppStrings.serverError))
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
-
+        
         XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.serverError))
     }
 }

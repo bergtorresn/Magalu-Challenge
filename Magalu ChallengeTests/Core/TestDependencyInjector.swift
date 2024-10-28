@@ -41,21 +41,10 @@ class TestDependencyInjector {
         
         // ========== Usecases
         container.register(GetPullRequestsUseCaseProtocol.self) { resolver in
-            let repository = resolver.resolve(PullRequestsRepositoryProtocol.self)!
-            return GetPullRequestsUseCase(repository: repository)
+            return MockGetPullRequestsUseCase()
         }
         container.register(GetPopularRepositoriesUseCaseProtocol.self) { resolver in
             return MockGetPopularRepositoriesUseCase()
-        }
-        
-        // ========== ViewModels
-        container.register(ListPullRequestsViewModel.self) { resolver in
-            let usecase = resolver.resolve(GetPullRequestsUseCaseProtocol.self)!
-            return ListPullRequestsViewModel(usecase: usecase)
-        }
-        container.register(ListRepositoriesViewModel.self) { resolver in
-            let usecase = resolver.resolve(GetPopularRepositoriesUseCaseProtocol.self)!
-            return ListRepositoriesViewModel(usecase: usecase)
         }
     }
     

@@ -23,9 +23,8 @@ struct ListPullRequestsUIView: View {
                 containedView()
             }
         }.onAppear(perform: {
-            viewModel.doRequestGetPullRequestsUseCase(repository: repository)
+            viewModel.doRequestGetPullRequestsUseCase(ownerName: repository.owner.name, repositoryName: repository.name)
         })
-        
     }
     
     func containedView() -> AnyView {
@@ -37,10 +36,10 @@ struct ListPullRequestsUIView: View {
         case .Loading:
             return AnyView(LoadingView())
             
-        case .Success(let items):
+        case .Success:
             return AnyView(
                 NavigationView {
-                    List(items) { item in
+                    List(viewModel.items) { item in
                         ItemPullRequestUIView(item: item)
                     }.listRowSpacing(20)
                 }.navigationTitle(repository.name))

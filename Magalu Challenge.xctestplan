@@ -1,0 +1,34 @@
+{
+  "configurations" : [
+    {
+      "id" : "CADEA8E7-B49D-4EB0-99FC-87276FEA98E3",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "IDEPreferLogStreaming",
+        "value" : "YES"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Magalu Challenge.xcodeproj",
+      "identifier" : "61BB66DA2CCAE85100B4CDB8",
+      "name" : "Magalu Challenge"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Magalu Challenge.xcodeproj",
+        "identifier" : "61BB66EA2CCAE85500B4CDB8",
+        "name" : "Magalu ChallengeTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -37,8 +37,7 @@ class TestDependencyInjector {
             return MockPopularListRepository()
         }
         container.register(PullRequestsRepositoryProtocol.self) { resolver in
-            let dataSource = resolver.resolve(PullRequestsDatasourceProtocol.self)!
-            return PullRequestsRepository(dataSource: dataSource)
+            return MockPullRequestsRepository()
         }
         
         // ========== Usecases

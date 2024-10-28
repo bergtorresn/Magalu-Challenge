@@ -22,6 +22,11 @@
 		9843F50D2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */; };
 		9843F50F2CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */; };
 		9843F5102CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */; };
+		9843F51D2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F51C2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift */; };
+		9843F51F2CCFF00400A01E27 /* PullRequestEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F51E2CCFF00400A01E27 /* PullRequestEntityTests.swift */; };
+		9843F5212CCFF2C100A01E27 /* GetPullRequestsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5202CCFF2C100A01E27 /* GetPullRequestsUseCaseTests.swift */; };
+		9843F5232CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */; };
+		9843F5242CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */; };
 		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
 		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
@@ -108,6 +113,10 @@
 		9843F5092CCFE6EC00A01E27 /* MockPopularListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPopularListDataSource.swift; sourceTree = "<group>"; };
 		9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPopularRepositoriesUseCase.swift; sourceTree = "<group>"; };
 		9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPopularListRepository.swift; sourceTree = "<group>"; };
+		9843F51C2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestUserEntityTests.swift; sourceTree = "<group>"; };
+		9843F51E2CCFF00400A01E27 /* PullRequestEntityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestEntityTests.swift; sourceTree = "<group>"; };
+		9843F5202CCFF2C100A01E27 /* GetPullRequestsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPullRequestsUseCaseTests.swift; sourceTree = "<group>"; };
+		9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPullRequestsRepository.swift; sourceTree = "<group>"; };
 		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
 		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
@@ -235,8 +244,49 @@
 				9843F5092CCFE6EC00A01E27 /* MockPopularListDataSource.swift */,
 				9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */,
 				9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */,
+				9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		9843F5112CCFEE7E00A01E27 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		9843F5122CCFEE8F00A01E27 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+				9843F5152CCFEEAC00A01E27 /* UseCase */,
+				9843F5142CCFEEA500A01E27 /* Entity */,
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		9843F5132CCFEE9800A01E27 /* PullRequests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PullRequests;
+			sourceTree = "<group>";
+		};
+		9843F5142CCFEEA500A01E27 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				9843F51C2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift */,
+				9843F51E2CCFF00400A01E27 /* PullRequestEntityTests.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		9843F5152CCFEEAC00A01E27 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				9843F5202CCFF2C100A01E27 /* GetPullRequestsUseCaseTests.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		9897B3DE2CCC2A4600651C91 /* Network */ = {
@@ -392,6 +442,7 @@
 		98B793152CCE8DEB006769DF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9843F5132CCFEE9800A01E27 /* PullRequests */,
 				98B793162CCE8E03006769DF /* PopularList */,
 			);
 			path = Presentation;
@@ -547,6 +598,7 @@
 		98F1E24D2CCD7846003CE49E /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				9843F5122CCFEE8F00A01E27 /* PullRequests */,
 				98F1E24C2CCD7846003CE49E /* PopularList */,
 			);
 			path = Domain;
@@ -555,6 +607,7 @@
 		98F1E25A2CCD79CA003CE49E /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9843F5112CCFEE7E00A01E27 /* PullRequests */,
 				98F1E25B2CCD79D1003CE49E /* PopularList */,
 			);
 			path = Data;
@@ -814,6 +867,7 @@
 				98B793322CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				9897B4052CCC2D6500651C91 /* ListRepositoriesUIView.swift in Sources */,
 				61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */,
+				9843F5232CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */,
 				9897B40B2CCC3DA400651C91 /* ListRepositoriesViewModel.swift in Sources */,
 				9843F50C2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */,
 				98B7932F2CCEA5DA006769DF /* PullRequestModel.swift in Sources */,
@@ -825,6 +879,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98F1E2552CCD787C003CE49E /* RepositoryEntity.swift in Sources */,
+				9843F5212CCFF2C100A01E27 /* GetPullRequestsUseCaseTests.swift in Sources */,
 				98F1E2502CCD7846003CE49E /* GetPopularRepositoriesUseCaseTests.swift in Sources */,
 				98B793192CCE8E24006769DF /* ListViewModelTests.swift in Sources */,
 				98F1E2542CCD7876003CE49E /* RepositoryModel.swift in Sources */,
@@ -853,13 +908,16 @@
 				98F1E2512CCD7863003CE49E /* OwnerEntity.swift in Sources */,
 				98B793332CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				98F1E2532CCD7874003CE49E /* PopularListModel.swift in Sources */,
+				9843F5242CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */,
 				98F1E2422CCD7774003CE49E /* NetworkService.swift in Sources */,
 				9843F5062CCFE5D500A01E27 /* TestDependencyInjector.swift in Sources */,
 				98F1E24F2CCD7846003CE49E /* RepositoryEntityTests.swift in Sources */,
+				9843F51D2CCFEF8900A01E27 /* PullRequestUserEntityTests.swift in Sources */,
 				61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */,
 				98B793372CCEA97C006769DF /* PullRequestsRepository.swift in Sources */,
 				98F1E2522CCD7872003CE49E /* OwnerModel.swift in Sources */,
 				98F1E25E2CCD7A4F003CE49E /* OwnerModelTests.swift in Sources */,
+				9843F51F2CCFF00400A01E27 /* PullRequestEntityTests.swift in Sources */,
 				98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */,
 				98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */,
 			);

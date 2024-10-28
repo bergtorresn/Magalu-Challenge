@@ -30,14 +30,14 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
     
     func testCallWithSuccess() {
         
-        let repositoryEntity1 = RepositoryEntity(id:1,
+        let entity1 = RepositoryEntity(id:1,
                                                  name: "kotlin",
                                                  description: "Square’s meticulous HTTP client for the JVM, Android, and GraalVM.",
                                                  stargazersCount: 49210,
                                                  watchersCount: 49210,
                                                  owner: OwnerEntity(name: "JetBrains",
                                                                     avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))
-        let repositoryEntity2 = RepositoryEntity(id: 2,
+        let entity2 = RepositoryEntity(id: 2,
                                                  name: "okhttp",
                                                  description: "The Kotlin Programming Language.",
                                                  stargazersCount: 45831,
@@ -45,17 +45,17 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
                                                  owner: OwnerEntity(name: "square",
                                                                     avatar: "https://avatars.githubusercontent.com/u/82592?v=4"))
         
-        let expectedRepositories = [repositoryEntity1,repositoryEntity2]
-        
-        mockRepository.result = .just(expectedRepositories)
+        let expectedValues = [entity1, entity2]
+
+        mockRepository.result = .just(expectedValues)
         
         let expectation = XCTestExpectation(description: "Should return repositories")
         
         useCase.call(page: 1)
             .subscribe(
-                onSuccess: { repositories in
-                    XCTAssertEqual(repositories.count, expectedRepositories.count)
-                    XCTAssertEqual(repositories.first?.name, expectedRepositories.first?.name)
+                onSuccess: { result in
+                    XCTAssertEqual(result.count, expectedValues.count)
+                    XCTAssertEqual(result.first?.name, expectedValues.first?.name)
                     expectation.fulfill()
                 },
                 onFailure: { _ in
@@ -78,15 +78,8 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
                         XCTFail("Expected error but got success")
                     },
                     onFailure: { error in
-                        var errorMessage: String  = ""
                         let err = error as! NetworkError
-                        switch err {
-                        case .decodeError(let d):
-                            errorMessage = d
-                        default:
-                            errorMessage = AppStrings.unknownError
-                        }
-                        XCTAssertEqual(errorMessage, AppStrings.decodeError)
+                        XCTAssertEqual(err.description, AppStrings.decodeError)
                         expectation.fulfill()
                     }
                 )

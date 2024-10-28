@@ -26,47 +26,29 @@ class MockGetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
 
 final class ListViewModelTests: XCTestCase {
     
-    var viewModel: ListViewModel!
+    var viewModel: ListRepositoriesViewModel!
     var mockUseCase: MockGetPopularRepositoriesUseCase!
-    var cancellables: Set<AnyCancellable> = []
     
     override func setUp() {
         super.setUp()
         mockUseCase = MockGetPopularRepositoriesUseCase()
-        viewModel = ListViewModel(usecase: mockUseCase)
+        viewModel = ListRepositoriesViewModel(usecase: mockUseCase)
     }
     
     override func tearDown() {
         mockUseCase = nil
         viewModel = nil
-        cancellables.removeAll()
         super.tearDown()
     }
     
-    func testDoRequestGetPopularRepositoriesLoadingState() {
-        
-        let expectation = XCTestExpectation(description: "state must be Loading")
-        
-        mockUseCase.result = .success([])
-        
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if state == .Loading {
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+    func testInitialState() {
+        XCTAssertEqual(self.viewModel.uiState, .Init)
+        XCTAssertTrue(self.viewModel.items.isEmpty)
     }
     
-    func testDoRequestGetPopularRepositoriesSuccessWithDataState() {
-        
-        let expectation = XCTestExpectation(description: "state must be success with data")
-        
-        let mockRepositories :[RepositoryEntity] = [RepositoryEntity(id: 1,
+    func testDoRequestGetPopularRepositoriesWithoutPaginationAndSuccessState() {
+                
+        let mockRepositories: [RepositoryEntity] = [RepositoryEntity(id: 1,
                                                                      name: "kotlin",
                                                                      description: "The Kotlin Programming Language.",
                                                                      stargazersCount: 49210,
@@ -76,106 +58,68 @@ final class ListViewModelTests: XCTestCase {
         
         mockUseCase.result = .success(mockRepositories)
         
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if case .Success(let repositories) = state {
-                    XCTAssertEqual(repositories.count, mockRepositories.count)
-                    XCTAssertEqual(repositories.first?.name, mockRepositories.first?.name)
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+        viewModel.doRequestGetPopularRepositories(isPagination: false)
+
+        XCTAssertEqual(self.viewModel.items.count, mockRepositories.count)
+        XCTAssertEqual(self.viewModel.uiState, .Success)
     }
     
-    func testDoRequestGetPopularRepositoriesSuccessWithoutDataState() {
+    func testDoRequestGetPopularRepositoriesWithPaginationAndSuccessState() {
+                
+        let mockRepositories1: [RepositoryEntity] = [RepositoryEntity(id: 1,
+                                                                     name: "kotlin",
+                                                                     description: "The Kotlin Programming Language.",
+                                                                     stargazersCount: 49210,
+                                                                     watchersCount: 49210,
+                                                                     owner: OwnerEntity(name: "JetBrains",
+                                                                                        avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
-        let expectation = XCTestExpectation(description: "state must be success without data")
+        let mockRepositories2: [RepositoryEntity] = [RepositoryEntity(id: 2,
+                                                                     name: "kotlin2",
+                                                                     description: "The Kotlin Programming Language.2",
+                                                                     stargazersCount: 49210,
+                                                                     watchersCount: 49210,
+                                                                     owner: OwnerEntity(name: "JetBrains",
+                                                                                        avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
-        let mockRepositories:[RepositoryEntity] = []
+        mockUseCase.result = .success(mockRepositories1)
         
-        mockUseCase.result = .success(mockRepositories)
+        viewModel.doRequestGetPopularRepositories(isPagination: false)
+
+        XCTAssertEqual(self.viewModel.items.count, mockRepositories1.count)
+        XCTAssertEqual(self.viewModel.uiState, .Success)
+
+        mockUseCase.result = .success(mockRepositories2)
+
+        viewModel.doRequestGetPopularRepositories(isPagination: true)
         
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if case .Success(let repositories) = state {
-                    XCTAssertEqual(repositories.isEmpty, mockRepositories.isEmpty)
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+        XCTAssertEqual(self.viewModel.items.count, 2)
     }
     
-    func testDoRequestGetPopularRepositoriesFailureWithUnknoewErrorState() {
+    func testDoRequestGetPopularRepositoriesWithFailureStateAndUnknownError() {
+                
+        mockUseCase.result = .failure(NetworkError.unknownError(AppStrings.unknownError))
         
-        let expectation = XCTestExpectation(description: "state must be failure with unknown error")
-        
-        let error = NetworkError.unknownError(AppStrings.unknownError)
-        
-        mockUseCase.result = .failure(error)
-        
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if case .ApiError(let errorMessage) = state {
-                    XCTAssertEqual(errorMessage, AppStrings.unknownError)
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+        viewModel.doRequestGetPopularRepositories(isPagination: false)
+
+        XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.unknownError))
     }
     
-    func testDoRequestGetPopularRepositoriesFailureWithDecodeErrorState() {
+    func testDoRequestGetPopularRepositoriesWithFailureStateAndDecodeError() {
         
-        let expectation = XCTestExpectation(description: "state must be failure with decode error")
+        mockUseCase.result = .failure(NetworkError.decodeError(AppStrings.decodeError))
         
-        let error = NetworkError.decodeError(AppStrings.decodeError)
-        
-        mockUseCase.result = .failure(error)
-        
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if case .ApiError(let errorMessage) = state {
-                    XCTAssertEqual(errorMessage, AppStrings.decodeError)
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+        viewModel.doRequestGetPopularRepositories(isPagination: false)
+
+        XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.decodeError))
     }
     
-    func testDoRequestGetPopularRepositoriesFailureWithServerErrorState() {
+    func testDoRequestGetPopularRepositoriesWithFailureStateAnServerError() {
         
-        let expectation = XCTestExpectation(description: "state must be failure with server error")
+        mockUseCase.result = .failure(NetworkError.serverError(AppStrings.serverError))
         
-        let error = NetworkError.serverError(AppStrings.serverError)
-        
-        mockUseCase.result = .failure(error)
-        
-        viewModel.$uiState
-            .dropFirst()
-            .sink { state in
-                if case .ApiError(let errorMessage) = state {
-                    XCTAssertEqual(errorMessage, AppStrings.serverError)
-                    expectation.fulfill()
-                }
-            }.store(in: &cancellables)
-        
-        viewModel.doRequestGetPopularRepositories(page: 1)
-        
-        wait(for: [expectation], timeout: 1.0)
+        viewModel.doRequestGetPopularRepositories(isPagination: false)
+
+        XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.serverError))
     }
 }

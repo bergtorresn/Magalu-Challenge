@@ -34,6 +34,7 @@ class ListRepositoriesViewModel: ObservableObject {
     
     @Published var uiState: ListRepositoriesState = .Init
     @Published var items: [RepositoryEntity] = []
+    @Published var isLoadingMore: Bool = false
     
     private var currentPage = 1
     
@@ -45,7 +46,9 @@ class ListRepositoriesViewModel: ObservableObject {
     }
     
     func doRequestGetPopularRepositories(isPagination: Bool){
-        if !isPagination {
+        if isPagination {
+            self.isLoadingMore = true
+        } else {
             self.uiState = .Loading
         }
         
@@ -53,23 +56,17 @@ class ListRepositoriesViewModel: ObservableObject {
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] success in
-                    if !isPagination {
+                    if isPagination {
+                        self?.isLoadingMore = false
+                    } else {
                         self?.uiState = .Success
                     }
                     self?.items.append(contentsOf: success)
                     self?.currentPage += 1
                 }, onFailure: { [weak self] failure in
-                    var errorMessage: String  = ""
                     let err = failure as! NetworkError
-                    switch err {
-                    case .decodeError(let d):
-                        errorMessage = d
-                    case .serverError(let s):
-                        errorMessage = s
-                    default:
-                        errorMessage = AppStrings.unknownError
-                    }
-                    self?.uiState = .ApiError(errorMessage)
+                    self?.isLoadingMore = false
+                    self?.uiState = .ApiError(err.description)
                 }).disposed(by: disposeBag)
     }
 }

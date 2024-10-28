@@ -44,7 +44,11 @@ struct ListRepositoriesUIView: View {
                                 viewModel.doRequestGetPopularRepositories(isPagination: true)
                             }
                         })
-                    }.listRowSpacing(20)
+                    }.overlay(content: {
+                        if viewModel.isLoadingMore {
+                            LoadingView()
+                        }
+                    }).listRowSpacing(20)
                 }.navigationTitle(AppStrings.navigationTitle)
                     .navigationBarTitleDisplayMode(.inline)
                     .tint(.black))

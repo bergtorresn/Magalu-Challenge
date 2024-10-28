@@ -15,6 +15,19 @@ enum NetworkError: Error {
     case decodeError(String)
 }
 
+extension NetworkError: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .unknownError:
+            return AppStrings.unknownError
+        case .serverError:
+            return AppStrings.serverError
+        case .decodeError:
+            return AppStrings.decodeError
+        }
+    }
+}
+
 protocol NetworkServiceProtocol {
     func doRequest<T: Decodable>(
         endpoint: String,

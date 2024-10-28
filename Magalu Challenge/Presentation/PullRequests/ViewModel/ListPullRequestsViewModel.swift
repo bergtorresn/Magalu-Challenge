@@ -55,17 +55,8 @@ class ListPullRequestsViewModel: ObservableObject {
                         self?.uiState = .Success(success)
                     }
                 }, onFailure: { [weak self] failure in
-                    var errorMessage: String  = ""
                     let err = failure as! NetworkError
-                    switch err {
-                    case .decodeError(let d):
-                        errorMessage = d
-                    case .serverError(let s):
-                        errorMessage = s
-                    default:
-                        errorMessage = AppStrings.unknownError
-                    }
-                    self?.uiState = .ApiError(errorMessage)
+                    self?.uiState = .ApiError(err.description)
                 }).disposed(by: disposeBag)
     }
 }

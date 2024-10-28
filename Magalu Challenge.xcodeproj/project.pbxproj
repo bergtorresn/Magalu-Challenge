@@ -11,11 +11,11 @@
 		31D2ACC9E4B7EF3EC7671405 /* Pods_Magalu_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */; };
 		4027A2C0B40F5EF737900A41 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F4AA5AA3A06E248FC83823C6 /* Pods_Magalu_Challenge_Magalu_ChallengeUITests.framework */; };
 		61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */; };
-		61BB66E32CCAE85500B4CDB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BB66E22CCAE85500B4CDB8 /* Assets.xcassets */; };
-		61BB66E62CCAE85500B4CDB8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61BB66E52CCAE85500B4CDB8 /* Preview Assets.xcassets */; };
 		61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */; };
 		61BB66FA2CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66F92CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift */; };
 		61BB66FC2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66FB2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift */; };
+		9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */; };
+		9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */; };
 		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
 		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
@@ -98,14 +98,14 @@
 		4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Magalu_Challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66DB2CCAE85100B4CDB8 /* Magalu Challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Magalu Challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeApp.swift; sourceTree = "<group>"; };
-		61BB66E22CCAE85500B4CDB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		61BB66E52CCAE85500B4CDB8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		61BB66EB2CCAE85500B4CDB8 /* Magalu ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeTests.swift; sourceTree = "<group>"; };
 		61BB66F52CCAE85500B4CDB8 /* Magalu ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66F92CCAE85500B4CDB8 /* Magalu_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITests.swift; sourceTree = "<group>"; };
 		61BB66FB2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
 		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
@@ -209,18 +209,10 @@
 				9897B3FD2CCC2B2700651C91 /* Presentation */,
 				9897B3DF2CCC2A4600651C91 /* Service */,
 				61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */,
-				61BB66E22CCAE85500B4CDB8 /* Assets.xcassets */,
-				61BB66E42CCAE85500B4CDB8 /* Preview Content */,
+				9843F4FD2CCFBED600A01E27 /* Preview Content */,
+				9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */,
 			);
 			path = "Magalu Challenge";
-			sourceTree = "<group>";
-		};
-		61BB66E42CCAE85500B4CDB8 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				61BB66E52CCAE85500B4CDB8 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		61BB66EE2CCAE85500B4CDB8 /* Magalu ChallengeTests */ = {
@@ -241,6 +233,14 @@
 				61BB66FB2CCAE85500B4CDB8 /* Magalu_ChallengeUITestsLaunchTests.swift */,
 			);
 			path = "Magalu ChallengeUITests";
+			sourceTree = "<group>";
+		};
+		9843F4FD2CCFBED600A01E27 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		9897B3DE2CCC2A4600651C91 /* Network */ = {
@@ -731,8 +731,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61BB66E62CCAE85500B4CDB8 /* Preview Assets.xcassets in Resources */,
-				61BB66E32CCAE85500B4CDB8 /* Assets.xcassets in Resources */,
+				9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */,
+				9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

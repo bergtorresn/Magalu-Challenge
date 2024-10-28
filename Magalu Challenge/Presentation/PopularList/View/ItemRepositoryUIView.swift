@@ -11,7 +11,7 @@ struct ItemRepositoryUIView: View {
     let item: RepositoryEntity
     
     var body: some View {
-        NavigationLink(destination: ListPullRequestsUIView(repository: item, viewModel: ListPullRequestsViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService()))))).toolbarRole(.editor)){
+        NavigationLink(destination: ListPullRequestsUIView(repository: item).toolbarRole(.editor)){
             VStack(content: {
                 HStack(content: {
                     VStack(alignment: .leading, content: {

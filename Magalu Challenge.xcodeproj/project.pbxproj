@@ -13,6 +13,8 @@
 		61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */; };
 		9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */; };
 		9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */; };
+		9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
+		9843F5022CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
 		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
 		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
@@ -93,6 +95,7 @@
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9843F5002CCFD96000A01E27 /* DependecyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjector.swift; sourceTree = "<group>"; };
 		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
 		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
@@ -485,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				98F1E2432CCD7792003CE49E /* AppStrings.swift */,
+				9843F5002CCFD96000A01E27 /* DependecyInjector.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -779,6 +783,7 @@
 				98B7933E2CCEAC22006769DF /* ListPullRequestsViewModel.swift in Sources */,
 				98B793272CCEA13F006769DF /* PullRequestsRepositoryProtocol.swift in Sources */,
 				98B793362CCEA97C006769DF /* PullRequestsRepository.swift in Sources */,
+				9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */,
 				9897B3F72CCC2A4600651C91 /* RepositoryModel.swift in Sources */,
 				98B793322CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				9897B4052CCC2D6500651C91 /* ListRepositoriesUIView.swift in Sources */,
@@ -807,6 +812,7 @@
 				98F1E2562CCD7897003CE49E /* PopularListRepositoryProtocol.swift in Sources */,
 				98F1E2572CCD78B1003CE49E /* GetPopularRepositoriesUseCase.swift in Sources */,
 				98F1E24E2CCD7846003CE49E /* OwnerEntityTests.swift in Sources */,
+				9843F5022CCFD96000A01E27 /* DependecyInjector.swift in Sources */,
 				98F1E2592CCD78C1003CE49E /* PopularListDataSource.swift in Sources */,
 				98B7933A2CCEAA5F006769DF /* PullRequestUserEntity.swift in Sources */,
 				98B793302CCEA5DA006769DF /* PullRequestModel.swift in Sources */,

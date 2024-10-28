@@ -12,10 +12,9 @@ struct ListPullRequestsUIView: View {
     
     @ObservedObject private var viewModel: ListPullRequestsViewModel
     
-    init(repository: RepositoryEntity,
-         viewModel: ListPullRequestsViewModel) {
+    init(repository: RepositoryEntity) {
         self.repository = repository
-        self.viewModel = viewModel
+        self.viewModel = DependecyInjector.shared.resolve(ListPullRequestsViewModel.self)
     }
     
     var body: some View {

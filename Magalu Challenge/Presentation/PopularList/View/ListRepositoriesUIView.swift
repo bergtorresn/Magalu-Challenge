@@ -11,8 +11,8 @@ struct ListRepositoriesUIView: View {
     
     @ObservedObject private var viewModel: ListRepositoriesViewModel
     
-    init(viewModel: ListRepositoriesViewModel) {
-        self.viewModel = viewModel
+    init() {
+        self.viewModel = DependecyInjector.shared.resolve(ListRepositoriesViewModel.self)
     }
     
     var body: some View {

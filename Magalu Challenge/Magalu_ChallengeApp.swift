@@ -11,12 +11,7 @@ import SwiftUI
 struct Magalu_ChallengeApp: App {
     var body: some Scene {
         WindowGroup {
-            ListRepositoriesUIView(viewModel: 
-                        ListRepositoriesViewModel(usecase:
-                                        GetPopularRepositoriesUseCase(repository:
-                                                                        PopularListRepository(dataSource: 
-                                                                                                PopularListDataSource(networkService:
-                                                                                                                        NetworkService())))))
+            ListRepositoriesUIView()
         }
     }
 }

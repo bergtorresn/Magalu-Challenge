@@ -8,13 +8,10 @@ target 'Magalu Challenge' do
   # Pods for Magalu Challenge
   pod 'Alamofire', '~> 5.10'
   pod 'RxSwift', '~> 6.8'
+  pod 'Swinject', '~> 2.9'
 
   target 'Magalu ChallengeTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Magalu ChallengeUITests' do
     # Pods for testing
   end
 

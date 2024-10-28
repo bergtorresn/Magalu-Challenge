@@ -8,15 +8,6 @@
 import XCTest
 import RxSwift
 
-class MockPopularListDataSource: PopularListDataSourceProtocol{
-   
-    var result: Single<PopularListModel>!
-    
-    func doRequestGetPopularList(page: Int) -> Single<PopularListModel> {
-        return result
-    }
-}
-
 final class PopularListRepositoryTests: XCTestCase {
     
     var mockDatasource : MockPopularListDataSource!
@@ -25,8 +16,7 @@ final class PopularListRepositoryTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        
-        mockDatasource = MockPopularListDataSource()
+        mockDatasource = TestDependencyInjector.shared.resolve(PopularListDataSourceProtocol.self) as? MockPopularListDataSource
         repository = PopularListRepository(dataSource: mockDatasource)
         disposeBag = DisposeBag()
     }

@@ -30,7 +30,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../Magalu Challenge.xctestplan"
+            reference = "container:Magalu Challenge.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

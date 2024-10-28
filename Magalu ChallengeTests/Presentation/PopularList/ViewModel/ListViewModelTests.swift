@@ -7,22 +7,6 @@
 
 import XCTest
 import RxSwift
-import Combine
-
-class MockGetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
-    var result: Result<[RepositoryEntity], NetworkError>!
-    
-    func call(page: Int) -> Single<[RepositoryEntity]> {
-        switch result {
-        case .success(let success):
-            return .just(success)
-        case .failure(let failure):
-            return .error(failure)
-        default:
-            fatalError("Result not found")
-        }
-    }
-}
 
 final class ListViewModelTests: XCTestCase {
     
@@ -31,7 +15,7 @@ final class ListViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mockUseCase = MockGetPopularRepositoriesUseCase()
+        mockUseCase = TestDependencyInjector.shared.resolve(GetPopularRepositoriesUseCaseProtocol.self) as? MockGetPopularRepositoriesUseCase
         viewModel = ListRepositoriesViewModel(usecase: mockUseCase)
     }
     

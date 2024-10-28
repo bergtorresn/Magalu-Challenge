@@ -8,14 +8,6 @@
 import XCTest
 import RxSwift
 
-class MockPopularListRepository: PopularListRepositoryProtocol{
-    var result: Single<[RepositoryEntity]>!
-    
-    func doRequestGetPopularList(page: Int) -> Single<[RepositoryEntity]> {
-        return result
-    }
-}
-
 final class GetPopularRepositoriesUseCaseTests: XCTestCase {
     
     var useCase : GetPopularRepositoriesUseCase!
@@ -24,8 +16,8 @@ final class GetPopularRepositoriesUseCaseTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        mockRepository = MockPopularListRepository()
-        useCase = GetPopularRepositoriesUseCase(repository: mockRepository!)
+        mockRepository = TestDependencyInjector.shared.resolve(PopularListRepositoryProtocol.self) as? MockPopularListRepository
+        useCase = GetPopularRepositoriesUseCase(repository: mockRepository)
         disposeBag = DisposeBag()
     }
     

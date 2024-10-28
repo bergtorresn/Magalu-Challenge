@@ -15,6 +15,13 @@
 		9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */; };
 		9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
 		9843F5022CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
+		9843F5062CCFE5D500A01E27 /* TestDependencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5052CCFE5D500A01E27 /* TestDependencyInjector.swift */; };
+		9843F5082CCFE61E00A01E27 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5072CCFE61E00A01E27 /* MockNetworkService.swift */; };
+		9843F50A2CCFE6EC00A01E27 /* MockPopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5092CCFE6EC00A01E27 /* MockPopularListDataSource.swift */; };
+		9843F50C2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */; };
+		9843F50D2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */; };
+		9843F50F2CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */; };
+		9843F5102CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */; };
 		9897B3F32CCC2A4600651C91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3DD2CCC2A4600651C91 /* NetworkService.swift */; };
 		9897B3F42CCC2A4600651C91 /* PopularListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */; };
 		9897B3F52CCC2A4600651C91 /* OwnerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B3E22CCC2A4600651C91 /* OwnerModel.swift */; };
@@ -96,6 +103,11 @@
 		9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9843F5002CCFD96000A01E27 /* DependecyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjector.swift; sourceTree = "<group>"; };
+		9843F5052CCFE5D500A01E27 /* TestDependencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDependencyInjector.swift; sourceTree = "<group>"; };
+		9843F5072CCFE61E00A01E27 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		9843F5092CCFE6EC00A01E27 /* MockPopularListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPopularListDataSource.swift; sourceTree = "<group>"; };
+		9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPopularRepositoriesUseCase.swift; sourceTree = "<group>"; };
+		9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPopularListRepository.swift; sourceTree = "<group>"; };
 		9897B3DD2CCC2A4600651C91 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		9897B3E02CCC2A4600651C91 /* PopularListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopularListDataSource.swift; sourceTree = "<group>"; };
 		9897B3E22CCC2A4600651C91 /* OwnerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwnerModel.swift; sourceTree = "<group>"; };
@@ -198,6 +210,7 @@
 		61BB66EE2CCAE85500B4CDB8 /* Magalu ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				9843F5042CCFE5B800A01E27 /* Core */,
 				98F1E25A2CCD79CA003CE49E /* Data */,
 				98F1E24D2CCD7846003CE49E /* Domain */,
 				98B793152CCE8DEB006769DF /* Presentation */,
@@ -212,6 +225,18 @@
 				9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9843F5042CCFE5B800A01E27 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9843F5052CCFE5D500A01E27 /* TestDependencyInjector.swift */,
+				9843F5072CCFE61E00A01E27 /* MockNetworkService.swift */,
+				9843F5092CCFE6EC00A01E27 /* MockPopularListDataSource.swift */,
+				9843F50B2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift */,
+				9843F50E2CCFED1800A01E27 /* MockPopularListRepository.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		9897B3DE2CCC2A4600651C91 /* Network */ = {
@@ -785,10 +810,12 @@
 				98B793362CCEA97C006769DF /* PullRequestsRepository.swift in Sources */,
 				9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */,
 				9897B3F72CCC2A4600651C91 /* RepositoryModel.swift in Sources */,
+				9843F50F2CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */,
 				98B793322CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				9897B4052CCC2D6500651C91 /* ListRepositoriesUIView.swift in Sources */,
 				61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */,
 				9897B40B2CCC3DA400651C91 /* ListRepositoriesViewModel.swift in Sources */,
+				9843F50C2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */,
 				98B7932F2CCEA5DA006769DF /* PullRequestModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -802,11 +829,14 @@
 				98B793192CCE8E24006769DF /* ListViewModelTests.swift in Sources */,
 				98F1E2542CCD7876003CE49E /* RepositoryModel.swift in Sources */,
 				98B793462CCEAF4D006769DF /* ItemPullRequestUIView.swift in Sources */,
+				9843F5102CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */,
 				98B793282CCEA13F006769DF /* PullRequestsRepositoryProtocol.swift in Sources */,
+				9843F50A2CCFE6EC00A01E27 /* MockPopularListDataSource.swift in Sources */,
 				98B7932C2CCEA20F006769DF /* PullRequestsDatasource.swift in Sources */,
 				98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */,
 				98B793242CCEA0E4006769DF /* PullRequestEntity.swift in Sources */,
 				98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */,
+				9843F50D2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */,
 				98B7933F2CCEAC22006769DF /* ListPullRequestsViewModel.swift in Sources */,
 				98B793202CCEA098006769DF /* GetPullRequestsUseCase.swift in Sources */,
 				98F1E2562CCD7897003CE49E /* PopularListRepositoryProtocol.swift in Sources */,
@@ -819,10 +849,12 @@
 				98B7931A2CCE8F2C006769DF /* ListRepositoriesViewModel.swift in Sources */,
 				98F1E2462CCD77C3003CE49E /* AppStrings.swift in Sources */,
 				98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */,
+				9843F5082CCFE61E00A01E27 /* MockNetworkService.swift in Sources */,
 				98F1E2512CCD7863003CE49E /* OwnerEntity.swift in Sources */,
 				98B793332CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
 				98F1E2532CCD7874003CE49E /* PopularListModel.swift in Sources */,
 				98F1E2422CCD7774003CE49E /* NetworkService.swift in Sources */,
+				9843F5062CCFE5D500A01E27 /* TestDependencyInjector.swift in Sources */,
 				98F1E24F2CCD7846003CE49E /* RepositoryEntityTests.swift in Sources */,
 				61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */,
 				98B793372CCEA97C006769DF /* PullRequestsRepository.swift in Sources */,

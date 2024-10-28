@@ -9,44 +9,15 @@ import XCTest
 import Alamofire
 import RxSwift
 
-class MockNetworkService: NetworkServiceProtocol {
-    var result: Result<Decodable, NetworkError>!
-    
-    func doRequest<T>(endpoint: String,
-                      method: HTTPMethod,
-                      parameters: [String : Any]?,
-                      headers: HTTPHeaders?) -> Single<T> where T : Decodable {
-        
-        return Single.create { single in
-            switch self.result {
-            case .success(let data):
-                if let responseData = data as? T {
-                    single(.success(responseData))
-                } else {
-                    single(.failure(NetworkError.unknownError(AppStrings.decodeError)))
-                }
-            case .failure(let error):
-                single(.failure(error))
-            case .none:
-                single(.failure(NetworkError.unknownError(AppStrings.unknownError)))
-            }
-            
-            return Disposables.create()
-        }
-    }
-}
-
-
 final class PopularListDataSourceTests: XCTestCase {
     
-    var mockNetworkService : MockNetworkService!
+    var mockNetworkService: MockNetworkService!
     var dataSource: PopularListDataSource!
     var disposeBag: DisposeBag!
     
     override func setUp() {
         super.setUp()
-        
-        mockNetworkService = MockNetworkService()
+        mockNetworkService = TestDependencyInjector.shared.resolve(NetworkServiceProtocol.self) as? MockNetworkService
         dataSource = PopularListDataSource(networkService: mockNetworkService)
         disposeBag = DisposeBag()
     }

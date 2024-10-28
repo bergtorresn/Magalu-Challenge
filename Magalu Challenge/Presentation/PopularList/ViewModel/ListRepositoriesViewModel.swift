@@ -11,7 +11,7 @@ import RxSwift
 enum ListRepositoriesState: Equatable {
     case Init
     case Loading
-    case Success([RepositoryEntity])
+    case Success
     case ApiError(String)
     
     static func == (lhs: ListRepositoriesState, rhs: ListRepositoriesState) -> Bool {
@@ -20,8 +20,8 @@ enum ListRepositoriesState: Equatable {
             return true
         case (.Loading, .Loading):
             return true
-        case (.Success(let lhsSuccess), .Success(let rhsSuccess)):
-            return lhsSuccess == rhsSuccess
+        case (.Success, .Success):
+            return true
         case (.ApiError(let lhsError), .ApiError(let rhsError)):
             return lhsError == rhsError
         default:
@@ -33,6 +33,9 @@ enum ListRepositoriesState: Equatable {
 class ListRepositoriesViewModel: ObservableObject {
     
     @Published var uiState: ListRepositoriesState = .Init
+    @Published var items: [RepositoryEntity] = []
+    
+    private var currentPage = 1
     
     let usecase: GetPopularRepositoriesUseCaseProtocol
     private let disposeBag = DisposeBag()
@@ -41,18 +44,20 @@ class ListRepositoriesViewModel: ObservableObject {
         self.usecase = usecase
     }
     
-    func doRequestGetPopularRepositories(page: Int){
-        self.uiState = .Loading
+    func doRequestGetPopularRepositories(isPagination: Bool){
+        if !isPagination {
+            self.uiState = .Loading
+        }
         
-        self.usecase.call(page: page)
+        self.usecase.call(page: currentPage)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] success in
-                    if success.isEmpty {
-                        self?.uiState = .Success([])
-                    } else {
-                        self?.uiState = .Success(success)
+                    if !isPagination {
+                        self?.uiState = .Success
                     }
+                    self?.items.append(contentsOf: success)
+                    self?.currentPage += 1
                 }, onFailure: { [weak self] failure in
                     var errorMessage: String  = ""
                     let err = failure as! NetworkError

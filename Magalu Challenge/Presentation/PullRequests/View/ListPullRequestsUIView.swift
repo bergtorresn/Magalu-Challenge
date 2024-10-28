@@ -37,18 +37,13 @@ struct ListPullRequestsUIView: View {
             
         case .Loading:
             return AnyView(LoadingView())
-
+            
         case .Success(let items):
             return AnyView(
                 NavigationView {
                     List(items) { item in
-                        NavigationLink(destination: WebViewUIView(repositoryURL: item.url)){
-                            ItemPullRequestUIView(item: item)
-                            Spacer(minLength: 50)
-                        }
-                    }.listRowSpacing(10)
-                        .listStyle(.plain)
-                        .listRowBackground(Color.clear)
+                        ItemPullRequestUIView(item: item)
+                    }.listRowSpacing(20)
                 }.navigationTitle(repository.name))
             
         case .ApiError(let errorMessage):

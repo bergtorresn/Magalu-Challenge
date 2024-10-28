@@ -21,7 +21,7 @@ struct ListRepositoriesUIView: View {
                 containedView()
             }
         }.onAppear(perform: {
-            viewModel.doRequestGetPopularRepositories(page: 1)
+            viewModel.doRequestGetPopularRepositories(isPagination: false)
         })
         
     }
@@ -35,17 +35,16 @@ struct ListRepositoriesUIView: View {
         case .Loading:
             return AnyView(LoadingView())
             
-        case .Success(let items):
+        case .Success:
             return AnyView(
                 NavigationView {
-                    List(items) { item in
-                        NavigationLink(destination: ListPullRequestsUIView(repository: item, viewModel: ListPullRequestsViewModel(usecase: GetPullRequestsUseCase(repository: PullRequestsRepository(dataSource: PullRequestsDatasource(networkService: NetworkService()))))).toolbarRole(.editor)){
-                            ItemRepositoryUIView(item: item)
-                            Spacer(minLength: 50)
-                        }
-                    }.listRowSpacing(10)
-                        .listStyle(.plain)
-                        .listRowBackground(Color.clear)
+                    List(viewModel.items) { item in
+                        ItemRepositoryUIView(item: item).onAppear(perform: {
+                            if item == viewModel.items.last {
+                                viewModel.doRequestGetPopularRepositories(isPagination: true)
+                            }
+                        })
+                    }.listRowSpacing(20)
                 }.navigationTitle(AppStrings.navigationTitle)
                     .navigationBarTitleDisplayMode(.inline)
                     .tint(.black))

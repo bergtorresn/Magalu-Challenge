@@ -9,7 +9,7 @@ import XCTest
 
 final class RepositoryModelTests: XCTestCase {
 
-    func testRepositoryInit() {
+    func testInit() {
         let repository = RepositoryModel(id: 1, name: "kotlin",
                                               description: "The Kotlin Programming Language.",
                                               stargazersCount: 49210,
@@ -53,6 +53,4 @@ final class RepositoryModelTests: XCTestCase {
             XCTFail("Decoding failed with error \(error)")
         }
     }
-    
-
 }

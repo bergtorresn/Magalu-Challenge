@@ -9,7 +9,7 @@ import XCTest
 
 final class OwnerModelTests: XCTestCase {
     
-    func testOwnerInit() {
+    func testInit() {
         let owner = OwnerModel(name: "JetBrains",
                                       avatar: "https://avatars.githubusercontent.com/u/878437?v=4")
         

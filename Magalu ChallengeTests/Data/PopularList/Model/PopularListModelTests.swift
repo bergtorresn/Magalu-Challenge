@@ -9,7 +9,7 @@ import XCTest
 
 final class PopularListModelTests: XCTestCase {
     
-    func testPopularListtInit() {
+    func testInit() {
         let repository1 = RepositoryModel(id: 1,
                                           name: "kotlin",
                                           description: "The Kotlin Programming Language.",

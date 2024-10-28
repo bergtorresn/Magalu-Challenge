@@ -95,5 +95,4 @@ final class PopularListRepositoryTests: XCTestCase {
             
             wait(for: [expectation], timeout: 1.0)
         }
-
 }

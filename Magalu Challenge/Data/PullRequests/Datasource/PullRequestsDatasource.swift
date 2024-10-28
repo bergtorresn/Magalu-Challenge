@@ -12,7 +12,7 @@ protocol PullRequestsDatasourceProtocol {
     func doRequestGetPullRequests(ownerName: String, repositoryName: String)  -> Single<[PullRequestModel]>
 }
 
-class PullRequestsDatasource : PullRequestsDatasourceProtocol {
+class PullRequestsDatasource: PullRequestsDatasourceProtocol {
     
     var networkService: NetworkServiceProtocol
     

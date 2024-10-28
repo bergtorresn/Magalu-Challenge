@@ -10,7 +10,7 @@ import XCTest
 final class PullRequestEntityTests: XCTestCase {
     
     func testInit() {
-        let pullRequest = PullRequestEntity(id: 1,
+        let entity = PullRequestEntity(id: 1,
                                             title: "Fix pymdownx.emoji extension warning",
                                             body: "## Description\r\n - Fix pymdownx.emoji",
                                             url: "https://github.com/square/okhttp/pull/8559",
@@ -18,13 +18,13 @@ final class PullRequestEntityTests: XCTestCase {
                                             user: PullRequestUserEntity(name: "jaredsburrows",
                                                                         avatar: "https://avatars.githubusercontent.com/u/1739848?v=4"))
         
-        XCTAssertEqual(pullRequest.id, 1)
-        XCTAssertEqual(pullRequest.title, "Fix pymdownx.emoji extension warning")
-        XCTAssertEqual(pullRequest.body, "## Description\r\n - Fix pymdownx.emoji")
-        XCTAssertEqual(pullRequest.url, "https://github.com/square/okhttp/pull/8559")
-        XCTAssertEqual(pullRequest.createdAt, "2024-10-19T18:23:17Z")
-        XCTAssertEqual(pullRequest.user.name, "jaredsburrows")
-        XCTAssertEqual(pullRequest.user.avatar, "https://avatars.githubusercontent.com/u/1739848?v=4")
+        XCTAssertEqual(entity.id, 1)
+        XCTAssertEqual(entity.title, "Fix pymdownx.emoji extension warning")
+        XCTAssertEqual(entity.body, "## Description\r\n - Fix pymdownx.emoji")
+        XCTAssertEqual(entity.url, "https://github.com/square/okhttp/pull/8559")
+        XCTAssertEqual(entity.createdAt, "2024-10-19T18:23:17Z")
+        XCTAssertEqual(entity.user.name, "jaredsburrows")
+        XCTAssertEqual(entity.user.avatar, "https://avatars.githubusercontent.com/u/1739848?v=4")
     }
     
     func testModelToEntityConversion() {

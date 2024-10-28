@@ -94,7 +94,5 @@ final class PopularListDataSourceTests: XCTestCase {
             .disposed(by: disposeBag)
         
         wait(for: [expectation], timeout: 1.0)
-    }
-    
-    
+    }    
 }

@@ -22,9 +22,12 @@ struct ListPullRequestsUIView: View {
             VStack {
                 containedView()
             }
-        }.onAppear(perform: {
-            viewModel.doRequestGetPullRequestsUseCase(ownerName: repository.owner.name, repositoryName: repository.name)
-        })
+            .navigationTitle(repository.name)
+            .navigationBarTitleDisplayMode(.automatic)
+            .font(.system(.title))
+            .onAppear(perform: {
+                viewModel.doRequestGetPullRequestsUseCase(ownerName: repository.owner.name, repositoryName: repository.name)            })
+        }
     }
     
     func containedView() -> AnyView {
@@ -38,11 +41,10 @@ struct ListPullRequestsUIView: View {
             
         case .Success:
             return AnyView(
-                NavigationView {
-                    List(viewModel.items) { item in
-                        ItemPullRequestUIView(item: item)
-                    }.listRowSpacing(20)
-                }.navigationTitle(repository.name))
+                List(viewModel.items) { item in
+                    ItemPullRequestUIView(item: item)
+                }.listRowSpacing(20)
+                    .listStyle(.plain))
             
         case .ApiError(let errorMessage):
             return AnyView(Text(errorMessage))

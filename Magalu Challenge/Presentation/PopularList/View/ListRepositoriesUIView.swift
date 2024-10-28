@@ -20,10 +20,13 @@ struct ListRepositoriesUIView: View {
             VStack {
                 containedView()
             }
-        }.onAppear(perform: {
-            viewModel.doRequestGetPopularRepositories(isPagination: false)
-        })
-        
+            .navigationTitle(AppStrings.navigationTitle)
+            .navigationBarTitleDisplayMode(.automatic)
+            .font(.system(.title))
+            .onAppear(perform: {
+                viewModel.doRequestGetPopularRepositories(isPagination: false)
+            })
+        }
     }
     
     func containedView() -> AnyView {
@@ -37,21 +40,20 @@ struct ListRepositoriesUIView: View {
             
         case .Success:
             return AnyView(
-                NavigationView {
-                    List(viewModel.items) { item in
-                        ItemRepositoryUIView(item: item).onAppear(perform: {
+                List(viewModel.items) { item in
+                    ItemRepositoryUIView(item: item)
+                        .onAppear {
                             if item == viewModel.items.last {
                                 viewModel.doRequestGetPopularRepositories(isPagination: true)
                             }
-                        })
-                    }.overlay(content: {
-                        if viewModel.isLoadingMore {
-                            LoadingView()
                         }
-                    }).listRowSpacing(20)
-                }.navigationTitle(AppStrings.navigationTitle)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .tint(.black))
+                }.overlay {
+                    if viewModel.isLoadingMore {
+                        LoadingView()
+                    }
+                }.listRowSpacing(20)
+                    .listStyle(.plain)
+            )
             
         case .ApiError(let errorMessage):
             return AnyView(Text(errorMessage))

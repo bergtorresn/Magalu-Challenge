@@ -26,6 +26,14 @@ struct ListRepositoriesUIView: View {
             .onViewDidLoad {
                 viewModel.doRequestGetPopularRepositories(
                     isPagination: false)
+            }.alert(item: $viewModel.errorWrapper) { error in
+                Alert(
+                    title: Text(AppStrings.dialogTitleDefault),
+                    message: Text(error.message),
+                    dismissButton: .default(Text(AppStrings.dialogBtnOk)) {
+                        viewModel.clearError()
+                    }
+                )
             }
         }
     }

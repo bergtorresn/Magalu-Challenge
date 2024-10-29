@@ -11,7 +11,7 @@ struct ItemPullRequestUIView: View {
     let item: PullRequestEntity
     
     var body: some View {
-        NavigationLink(destination: PullRequestWebViewUIView(repositoryURL: item.url)){
+        NavigationLink(destination: PullRequestUIView(repositoryURL: item.url)){
             VStack(alignment: .leading, content: {
                 Text(item.title)
                     .font(.headline)

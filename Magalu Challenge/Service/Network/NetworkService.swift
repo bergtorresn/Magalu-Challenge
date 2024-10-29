@@ -10,9 +10,10 @@ import Alamofire
 import RxSwift
 
 enum NetworkError: Error {
-    case unknownError(String)
-    case serverError(String)
-    case decodeError(String)
+    case unknownError
+    case serverError
+    case decodeError
+    case noInternetConnection
 }
 
 extension NetworkError: CustomStringConvertible {
@@ -24,6 +25,8 @@ extension NetworkError: CustomStringConvertible {
             return AppStrings.serverError
         case .decodeError:
             return AppStrings.decodeError
+        case .noInternetConnection:
+            return AppStrings.noInternetConnection
         }
     }
 }
@@ -40,7 +43,8 @@ class NetworkService : NetworkServiceProtocol{
     
     private let session: Session
     static let shared = NetworkService()
-    
+    private let reachabilityManager = NetworkReachabilityManager()
+
     init(session: Session = .default) {
         self.session = session
     }
@@ -49,6 +53,10 @@ class NetworkService : NetworkServiceProtocol{
                       method: Alamofire.HTTPMethod,
                       parameters: [String : Any]?,
                       headers: Alamofire.HTTPHeaders?) -> Single<T> where T : Decodable {
+        
+        guard reachabilityManager?.isReachable == true else {
+            return Single.error(NetworkError.noInternetConnection)
+        }
         
         var defaultHeards: HTTPHeaders = ["Content-Type": "application/json"]
         
@@ -81,20 +89,20 @@ class NetworkService : NetworkServiceProtocol{
     
     private func handlerErrors(error: AFError) -> NetworkError {
         if error.isResponseSerializationError {
-            return .decodeError(AppStrings.decodeError)
+            return .decodeError
         } else {
             if let statusCode = error.responseCode {
                 switch statusCode {
                 case 400...499:
-                    return .serverError(AppStrings.notFoundError)
+                    return .serverError
                 case 500...599:
-                    return .serverError(AppStrings.serverError)
+                    return .serverError
                 default:
-                    return .unknownError(AppStrings.unknownError)
+                    return .unknownError
                 }
             }
         }
         
-        return .unknownError(AppStrings.unknownError)
+        return .unknownError
     }
 }

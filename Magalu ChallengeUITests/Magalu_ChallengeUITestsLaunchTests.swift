@@ -2,7 +2,7 @@
 //  Magalu_ChallengeUITestsLaunchTests.swift
 //  Magalu ChallengeUITests
 //
-//  Created by Rosemberg Torres Nunes on 24/10/24.
+//  Created by Rosemberg Torres on 29/10/24.
 //
 
 import XCTest

@@ -50,13 +50,13 @@ class DependecyInjector {
         //  ========== ViewModels
         container.register(ListRepositoriesViewModel.self) { r in
             return ListRepositoriesViewModel(usecase: r.resolve(GetPopularRepositoriesUseCaseProtocol.self)!)
-        }.inObjectScope(.container)
+        }.inObjectScope(.transient)
         container.register(ListPullRequestsViewModel.self) { r in
             return ListPullRequestsViewModel(usecase: r.resolve(GetPullRequestsUseCaseProtocol.self)!)
-        }.inObjectScope(.container)
+        }.inObjectScope(.transient)
         container.register(WebViewViewModel.self) { (_, url: String) in
             return WebViewViewModel(url: url)
-        }.inObjectScope(.container)
+        }.inObjectScope(.transient)
     }
     
     func resolve<Service>(_ serviceType: Service.Type) -> Service {

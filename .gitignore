@@ -41,7 +41,6 @@ xcuserdata/
 *.DS_Store
 *.log
 *.plist
-*.xcassets
 *.pyc
 *.log
 *.xcarchive

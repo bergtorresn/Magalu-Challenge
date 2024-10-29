@@ -40,3 +40,12 @@ O projeto conta com cobertura de testes unitários para garantir a integridade e
 1. Clone o repositório.
 2. Instale as dependências do projeto utilizando CocoaPods.
 3. Abra o arquivo .xcworkspace no Xcode.
+
+## Screenshots
+<img src="https://github.com/user-attachments/assets/1f47c63e-d4ff-4bf0-a382-0e5846c3cb35" width="200" height="400" />
+<img src="https://github.com/user-attachments/assets/32e553a1-5017-4c80-88db-7cac60c310b6" width="200" height="400" />
+<img src="https://github.com/user-attachments/assets/199bb69e-38b1-4bc6-a3ec-f33727edcde3" width="200" height="400" />
+
+
+
+

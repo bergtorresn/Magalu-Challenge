@@ -9,6 +9,7 @@ Este projeto em Swift é um aplicativo para listar os repositórios de Swift mai
 - **Swinject** - Para Injeção de Dependência.
 - **Alamofire** - Para gerenciamento de requisições de rede.
 - **SwiftUI** - Interface do usuário.
+- **Network** - Checagem de conexão com a internet.
 
 ## Estrutura do Projeto
 

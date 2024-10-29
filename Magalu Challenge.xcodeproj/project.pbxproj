@@ -11,6 +11,7 @@
 		31D2ACC9E4B7EF3EC7671405 /* Pods_Magalu_Challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FF43A7FA509F320E0E00C61 /* Pods_Magalu_Challenge.framework */; };
 		61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */; };
 		61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */; };
+		9829EC1D2CD07F0900378290 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */; };
 		9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */; };
 		9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */; };
 		9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
@@ -115,6 +116,7 @@
 		61BB66EB2CCAE85500B4CDB8 /* Magalu ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeTests.swift; sourceTree = "<group>"; };
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9843F5002CCFD96000A01E27 /* DependecyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjector.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */,
 				9843F4FD2CCFBED600A01E27 /* Preview Content */,
 				9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */,
+				9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */,
 			);
 			path = "Magalu Challenge";
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9829EC1D2CD07F0900378290 /* Launch Screen.storyboard in Resources */,
 				9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */,
 				9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */,
 			);
@@ -1131,9 +1135,11 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Repositories;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1161,9 +1167,11 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Repositories;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

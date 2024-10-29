@@ -1,6 +1,6 @@
 # Swift GitHub Repositories
 
-Este projeto em Swift é um aplicativo para listar os repositórios de Swift mais populares do GitHub. Ele foi desenvolvido utilizando conceitos de Clean Architecture, MVI (Model-View-Intent) e outras boas práticas.
+Este projeto é um aplicativo para listar os repositórios da linguagem de programação Swift mais populares do GitHub. Ele foi desenvolvido utilizando conceitos de Clean Architecture, MVVM (Model-View-ViewModel) e outras boas práticas.
 
 ## Tecnologias e Frameworks
 

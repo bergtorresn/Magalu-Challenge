@@ -69,7 +69,7 @@ final class PopularListDataSourceTests: XCTestCase {
     }
     
     func testResultWithError() {
-        mockNetworkService.result = .failure(NetworkError.decodeError(AppStrings.decodeError))
+        mockNetworkService.result = .failure(NetworkError.decodeError)
         
         let expectation = XCTestExpectation(description: "Should return an error")
         
@@ -79,15 +79,8 @@ final class PopularListDataSourceTests: XCTestCase {
                     XCTFail("Expected error but got success")
                 },
                 onFailure: { error in
-                    var errorMessage: String  = ""
                     let err = error as! NetworkError
-                    switch err {
-                    case .decodeError(let d):
-                        errorMessage = d
-                    default:
-                        errorMessage = AppStrings.unknownError
-                    }
-                    XCTAssertEqual(errorMessage, AppStrings.decodeError)
+                    XCTAssertEqual(err.description, AppStrings.decodeError)
                     expectation.fulfill()
                 }
             )

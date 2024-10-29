@@ -82,7 +82,7 @@ final class ListViewModelTests: XCTestCase {
     
     func testDoRequestGetPopularRepositoriesWithFailureStateAndUnknownError() {
         
-        mockUseCase.result = .failure(NetworkError.unknownError(AppStrings.unknownError))
+        mockUseCase.result = .failure(NetworkError.unknownError)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         
@@ -91,7 +91,7 @@ final class ListViewModelTests: XCTestCase {
     
     func testDoRequestGetPopularRepositoriesWithFailureStateAndDecodeError() {
         
-        mockUseCase.result = .failure(NetworkError.decodeError(AppStrings.decodeError))
+        mockUseCase.result = .failure(NetworkError.decodeError)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         
@@ -100,7 +100,7 @@ final class ListViewModelTests: XCTestCase {
     
     func testDoRequestGetPopularRepositoriesWithFailureStateAnServerError() {
         
-        mockUseCase.result = .failure(NetworkError.serverError(AppStrings.serverError))
+        mockUseCase.result = .failure(NetworkError.serverError)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         

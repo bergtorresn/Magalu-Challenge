@@ -59,7 +59,7 @@ final class ListPullRequestsViewModelTests: XCTestCase {
     
     func testdoRequestGetPullRequestsUseCaseWithErrorState() {
                 
-        mockUseCase.result = .failure(NetworkError.unknownError(AppStrings.unknownError))
+        mockUseCase.result = .failure(NetworkError.unknownError)
         
         viewModel.doRequestGetPullRequestsUseCase(ownerName: "square", repositoryName: "okhttp")
 

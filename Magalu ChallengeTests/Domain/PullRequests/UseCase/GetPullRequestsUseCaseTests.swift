@@ -68,7 +68,7 @@ final class GetPullRequestsUseCaseTests: XCTestCase {
     }
     
     func testCallWithError() {
-        mockRepository.result = .error(NetworkError.decodeError(AppStrings.decodeError))
+        mockRepository.result = .error(NetworkError.decodeError)
             
             let expectation = XCTestExpectation(description: "Should return an error")
             

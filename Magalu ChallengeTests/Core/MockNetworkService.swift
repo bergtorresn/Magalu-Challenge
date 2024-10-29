@@ -23,12 +23,12 @@ class MockNetworkService: NetworkServiceProtocol {
                 if let responseData = data as? T {
                     single(.success(responseData))
                 } else {
-                    single(.failure(NetworkError.unknownError(AppStrings.decodeError)))
+                    single(.failure(NetworkError.unknownError))
                 }
             case .failure(let error):
                 single(.failure(error))
             case .none:
-                single(.failure(NetworkError.unknownError(AppStrings.unknownError)))
+                single(.failure(NetworkError.unknownError))
             }
             
             return Disposables.create()

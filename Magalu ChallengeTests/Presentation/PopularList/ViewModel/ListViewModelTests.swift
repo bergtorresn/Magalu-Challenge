@@ -11,27 +11,31 @@ import RxSwift
 final class ListViewModelTests: XCTestCase {
     
     var viewModel: ListRepositoriesViewModel!
-    var mockUseCase: MockGetPopularRepositoriesUseCase!
+    var mockSuccessUseCase: MockGetPopularRepositoriesUseCase!
+    var mockFailureUseCase: MockGetPopularRepositoriesUseCase!
     
     override func setUp() {
         super.setUp()
-        mockUseCase = TestDependencyInjector.shared.resolve(GetPopularRepositoriesUseCaseProtocol.self) as? MockGetPopularRepositoriesUseCase
-        viewModel = ListRepositoriesViewModel(usecase: mockUseCase)
+        mockSuccessUseCase = TestDependencyInjector.shared.resolve(GetPopularRepositoriesUseCaseProtocol.self, name: "success") as? MockGetPopularRepositoriesUseCase
+        mockFailureUseCase = TestDependencyInjector.shared.resolve(GetPopularRepositoriesUseCaseProtocol.self, name: "failure") as? MockGetPopularRepositoriesUseCase
     }
     
     override func tearDown() {
-        mockUseCase = nil
+        mockSuccessUseCase = nil
+        mockFailureUseCase = nil
         viewModel = nil
         super.tearDown()
     }
     
     func testInitialState() {
+        viewModel = ListRepositoriesViewModel(usecase: mockSuccessUseCase)
         XCTAssertEqual(self.viewModel.uiState, .Init)
         XCTAssertTrue(self.viewModel.items.isEmpty)
     }
     
     func testDoRequestGetPopularRepositoriesWithoutPaginationAndSuccessState() {
-        
+        viewModel = ListRepositoriesViewModel(usecase: mockSuccessUseCase)
+
         let mockRepositories: [RepositoryEntity] = [RepositoryEntity(id: 1,
                                                                      name: "kotlin",
                                                                      description: "The Kotlin Programming Language.",
@@ -40,7 +44,7 @@ final class ListViewModelTests: XCTestCase {
                                                                      owner: OwnerEntity(name: "JetBrains",
                                                                                         avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
-        mockUseCase.result = .success(mockRepositories)
+        mockSuccessUseCase.result = .success(mockRepositories)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         
@@ -49,7 +53,8 @@ final class ListViewModelTests: XCTestCase {
     }
     
     func testDoRequestGetPopularRepositoriesWithPaginationAndSuccessState() {
-        
+        viewModel = ListRepositoriesViewModel(usecase: mockSuccessUseCase)
+
         let mockRepositories1: [RepositoryEntity] = [RepositoryEntity(id: 1,
                                                                       name: "kotlin",
                                                                       description: "The Kotlin Programming Language.",
@@ -66,44 +71,51 @@ final class ListViewModelTests: XCTestCase {
                                                                       owner: OwnerEntity(name: "JetBrains",
                                                                                          avatar: "https://avatars.githubusercontent.com/u/878437?v=4"))]
         
-        mockUseCase.result = .success(mockRepositories1)
+        mockSuccessUseCase.result = .success(mockRepositories1)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         
         XCTAssertEqual(self.viewModel.items.count, mockRepositories1.count)
         XCTAssertEqual(self.viewModel.uiState, .Success)
         
-        mockUseCase.result = .success(mockRepositories2)
+        mockSuccessUseCase.result = .success(mockRepositories2)
         
         viewModel.doRequestGetPopularRepositories(isPagination: true)
         
         XCTAssertEqual(self.viewModel.items.count, 2)
     }
     
-    func testDoRequestGetPopularRepositoriesWithFailureStateAndUnknownError() {
-        
-        mockUseCase.result = .failure(NetworkError.unknownError)
+    func testDoRequestGetPopularRepositoriesWithFailureState() {
+        viewModel = ListRepositoriesViewModel(usecase: mockFailureUseCase)
+
+        mockFailureUseCase.result = .failure(NetworkError.unknownError)
         
         viewModel.doRequestGetPopularRepositories(isPagination: false)
         
         XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.unknownError))
     }
     
-    func testDoRequestGetPopularRepositoriesWithFailureStateAndDecodeError() {
+    func testPaginationDoRequestGetPopularRepositoriesWithFailure() {
+        viewModel = ListRepositoriesViewModel(usecase: mockFailureUseCase)
+
+        let errorWrapper = ErrorWrapper(message: NetworkError.unknownError.description)
         
-        mockUseCase.result = .failure(NetworkError.decodeError)
+        mockFailureUseCase.result = .failure(NetworkError.unknownError)
         
-        viewModel.doRequestGetPopularRepositories(isPagination: false)
+        viewModel.doRequestGetPopularRepositories(isPagination: true)
         
-        XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.decodeError))
+        XCTAssertEqual(viewModel.errorWrapper?.message, AppStrings.unknownError.description)
     }
     
-    func testDoRequestGetPopularRepositoriesWithFailureStateAnServerError() {
+    func testSetErrorWrapperToNull() {
+        viewModel = ListRepositoriesViewModel(usecase: mockFailureUseCase)
+
+        mockFailureUseCase.result = .failure(NetworkError.unknownError)
         
-        mockUseCase.result = .failure(NetworkError.serverError)
+        viewModel.doRequestGetPopularRepositories(isPagination: true)
+
+        viewModel.clearError()
         
-        viewModel.doRequestGetPopularRepositories(isPagination: false)
-        
-        XCTAssertEqual(viewModel.uiState, .ApiError(AppStrings.serverError))
+        XCTAssertNil(viewModel.errorWrapper)
     }
 }

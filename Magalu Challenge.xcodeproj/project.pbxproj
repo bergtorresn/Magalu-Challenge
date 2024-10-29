@@ -16,6 +16,9 @@
 		981DB5C82CD14ECE00A2B831 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC202CD0831F00378290 /* Extensions.swift */; };
 		981DB5C92CD14ED100A2B831 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */; };
 		981DB5CA2CD14F4300A2B831 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E41E692CCEC84900D28B98 /* LoadingView.swift */; };
+		981ECCF92CD1679F004156B3 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCF82CD1679F004156B3 /* NetworkServiceTests.swift */; };
+		981ECCFB2CD169BC004156B3 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */; };
+		981ECCFF2CD1855D004156B3 /* ErrorWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */; };
 		9829EC1D2CD07F0900378290 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */; };
 		9829EC1F2CD0830200378290 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */; };
 		9829EC212CD0831F00378290 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC202CD0831F00378290 /* Extensions.swift */; };
@@ -127,6 +130,9 @@
 		61BB66EB2CCAE85500B4CDB8 /* Magalu ChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeTests.swift; sourceTree = "<group>"; };
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		981ECCF82CD1679F004156B3 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
+		981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapperTests.swift; sourceTree = "<group>"; };
 		9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
 		9829EC202CD0831F00378290 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 		61BB66EE2CCAE85500B4CDB8 /* Magalu ChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				981ECCF62CD16787004156B3 /* Service */,
 				9843F5042CCFE5B800A01E27 /* Core */,
 				98F1E25A2CCD79CA003CE49E /* Data */,
 				98F1E24D2CCD7846003CE49E /* Domain */,
@@ -262,6 +269,22 @@
 				61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */,
 			);
 			path = "Magalu ChallengeTests";
+			sourceTree = "<group>";
+		};
+		981ECCF62CD16787004156B3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				981ECCF72CD1678F004156B3 /* Network */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		981ECCF72CD1678F004156B3 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				981ECCF82CD1679F004156B3 /* NetworkServiceTests.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		9843F4FD2CCFBED600A01E27 /* Preview Content */ = {
@@ -283,6 +306,8 @@
 				9843F5222CCFF33400A01E27 /* MockPullRequestsRepository.swift */,
 				9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */,
 				9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */,
+				981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */,
+				981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -985,9 +1010,11 @@
 				9843F50A2CCFE6EC00A01E27 /* MockPopularListDataSource.swift in Sources */,
 				98B7932C2CCEA20F006769DF /* PullRequestsDatasource.swift in Sources */,
 				98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */,
+				981ECCFB2CD169BC004156B3 /* MockURLProtocol.swift in Sources */,
 				98B793242CCEA0E4006769DF /* PullRequestEntity.swift in Sources */,
 				98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */,
 				9843F50D2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */,
+				981ECCF92CD1679F004156B3 /* NetworkServiceTests.swift in Sources */,
 				98B7933F2CCEAC22006769DF /* ListPullRequestsViewModel.swift in Sources */,
 				9843F5292CCFF56D00A01E27 /* PullRequestUserModelTests.swift in Sources */,
 				98B793202CCEA098006769DF /* GetPullRequestsUseCase.swift in Sources */,
@@ -1022,6 +1049,7 @@
 				9843F51F2CCFF00400A01E27 /* PullRequestEntityTests.swift in Sources */,
 				98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */,
 				98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */,
+				981ECCFF2CD1855D004156B3 /* ErrorWrapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,12 @@ import Foundation
 import RxSwift
 
 class MockGetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
-    var result: Result<[RepositoryEntity], NetworkError>!
+    
+    var result: Result<[RepositoryEntity], NetworkError>
+
+    init(result: Result<[RepositoryEntity], NetworkError>) {
+        self.result = result
+    }
     
     func call(page: Int) -> Single<[RepositoryEntity]> {
         switch result {
@@ -17,8 +22,6 @@ class MockGetPopularRepositoriesUseCase: GetPopularRepositoriesUseCaseProtocol {
             return .just(success)
         case .failure(let failure):
             return .error(failure)
-        default:
-            fatalError("Result not found")
         }
     }
 }

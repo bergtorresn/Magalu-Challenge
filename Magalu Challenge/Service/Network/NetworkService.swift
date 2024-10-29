@@ -44,7 +44,7 @@ class NetworkService : NetworkServiceProtocol{
     private let session: Session
     static let shared = NetworkService()
     private let reachabilityManager = NetworkReachabilityManager()
-
+    
     init(session: Session = .default) {
         self.session = session
     }
@@ -60,8 +60,8 @@ class NetworkService : NetworkServiceProtocol{
         
         var defaultHeards: HTTPHeaders = ["Content-Type": "application/json"]
         
-        if let customHeaders = headers {
-            for header in customHeaders {
+        if headers != nil {
+            for header in headers! {
                 defaultHeards.add(header)
             }
         }

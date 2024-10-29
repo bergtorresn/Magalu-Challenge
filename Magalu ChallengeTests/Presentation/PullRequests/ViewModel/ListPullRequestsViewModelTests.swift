@@ -11,26 +11,32 @@ import RxSwift
 final class ListPullRequestsViewModelTests: XCTestCase {
 
     var viewModel: ListPullRequestsViewModel!
-    var mockUseCase: MockGetPullRequestsUseCase!
-    
+    var mockSuccessUseCase: MockGetPullRequestsUseCase!
+    var mockFailureUseCase: MockGetPullRequestsUseCase!
+
     override func setUp() {
         super.setUp()
-        mockUseCase = TestDependencyInjector.shared.resolve(GetPullRequestsUseCaseProtocol.self) as? MockGetPullRequestsUseCase
-        viewModel = ListPullRequestsViewModel(usecase: mockUseCase)
+        mockSuccessUseCase = TestDependencyInjector.shared.resolve(GetPullRequestsUseCaseProtocol.self, name: "success") as? MockGetPullRequestsUseCase
+        mockFailureUseCase = TestDependencyInjector.shared.resolve(GetPullRequestsUseCaseProtocol.self, name: "failure") as? MockGetPullRequestsUseCase
     }
     
     override func tearDown() {
-        mockUseCase = nil
+        mockSuccessUseCase = nil
+        mockFailureUseCase = nil
         viewModel = nil
         super.tearDown()
     }
     
     func testInitialState() {
+        viewModel = ListPullRequestsViewModel(usecase: mockSuccessUseCase)
         XCTAssertEqual(self.viewModel.uiState, .Init)
         XCTAssertTrue(self.viewModel.items.isEmpty)
     }
     
     func testdoRequestGetPullRequestsUseCaseWithSuccessState() {
+        
+        viewModel = ListPullRequestsViewModel(usecase: mockSuccessUseCase)
+
         
         let entity1 = PullRequestEntity(id: 1,
                                       title: "Fix pymdownx.emoji extension warning",
@@ -49,7 +55,7 @@ final class ListPullRequestsViewModelTests: XCTestCase {
                 
         let resultExpected = [entity1, entity2]
         
-        mockUseCase.result = .success(resultExpected)
+        mockSuccessUseCase.result = .success(resultExpected)
         
         viewModel.doRequestGetPullRequestsUseCase(ownerName: "square", repositoryName: "okhttp")
 
@@ -58,8 +64,10 @@ final class ListPullRequestsViewModelTests: XCTestCase {
     }
     
     func testdoRequestGetPullRequestsUseCaseWithErrorState() {
+        
+        viewModel = ListPullRequestsViewModel(usecase: mockFailureUseCase)
                 
-        mockUseCase.result = .failure(NetworkError.unknownError)
+        mockFailureUseCase.result = .failure(NetworkError.unknownError)
         
         viewModel.doRequestGetPullRequestsUseCase(ownerName: "square", repositoryName: "okhttp")
 

@@ -40,15 +40,21 @@ class TestDependencyInjector {
         }
         
         // ========== Usecases
-        container.register(GetPullRequestsUseCaseProtocol.self) { resolver in
-            return MockGetPullRequestsUseCase()
+        container.register(GetPullRequestsUseCaseProtocol.self, name: "success") { resolver in
+            return MockGetPullRequestsUseCase(result: .success([]))
         }
-        container.register(GetPopularRepositoriesUseCaseProtocol.self) { resolver in
-            return MockGetPopularRepositoriesUseCase()
+        container.register(GetPullRequestsUseCaseProtocol.self, name: "failure") { resolver in
+            return MockGetPullRequestsUseCase(result: .failure(NetworkError.unknownError))
+        }
+        container.register(GetPopularRepositoriesUseCaseProtocol.self , name: "success") { resolver in
+            return MockGetPopularRepositoriesUseCase(result: .success([]))
+        }
+        container.register(GetPopularRepositoriesUseCaseProtocol.self, name: "failure") { resolver in
+            return MockGetPopularRepositoriesUseCase(result: .failure(NetworkError.unknownError))
         }
     }
     
-    func resolve<Service>(_ serviceType: Service.Type) -> Service {
-        return container.resolve(serviceType)!
+    func resolve<Service>(_ serviceType: Service.Type, name: String? = nil) -> Service {
+        return container.resolve(serviceType, name: name)!
     }
 }

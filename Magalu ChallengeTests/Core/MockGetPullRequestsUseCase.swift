@@ -9,7 +9,11 @@ import Foundation
 import RxSwift
 
 class MockGetPullRequestsUseCase: GetPullRequestsUseCaseProtocol {
-    var result: Result<[PullRequestEntity], NetworkError>!
+    var result: Result<[PullRequestEntity], NetworkError>
+    
+    init(result: Result<[PullRequestEntity], NetworkError>) {
+        self.result = result
+    }
     
     func call(ownerName: String, repositoryName: String) -> Single<[PullRequestEntity]> {
         switch result {
@@ -17,8 +21,6 @@ class MockGetPullRequestsUseCase: GetPullRequestsUseCaseProtocol {
             return .just(success)
         case .failure(let failure):
             return .error(failure)
-        default:
-            fatalError("Result not found")
         }
     }
 }

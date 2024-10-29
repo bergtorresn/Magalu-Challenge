@@ -8,6 +8,7 @@
 import Foundation
 
 import RxSwift
+import Network
 
 enum ListPullRequestsState: Equatable {
     case Init
@@ -39,23 +40,48 @@ class ListPullRequestsViewModel: ObservableObject {
     let usecase: GetPullRequestsUseCaseProtocol
     private let disposeBag = DisposeBag()
     
+    private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue(label: "PullRequests")
+    private var lastOwnerNameUsed: String = ""
+    private var lastRepositoryNameUsed: String = ""
+
     init(usecase: GetPullRequestsUseCaseProtocol) {
         self.usecase = usecase
     }
     
     func doRequestGetPullRequestsUseCase(ownerName: String, repositoryName: String) {
+        self.lastOwnerNameUsed = ownerName
+        self.lastRepositoryNameUsed = repositoryName
+        
         self.uiState = .Loading
         
         self.usecase.call(ownerName: ownerName, repositoryName: repositoryName)
             .observe(on: MainScheduler.instance)
             .subscribe(
                 onSuccess: { [weak self] success in
-                    self?.items.append(contentsOf: success)
+                    success.forEach { pull in
+                        self?.items.appendIfNotContains(pull)
+                    }
+                    self?.monitor.cancel()
                     self?.uiState = .Success
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.uiState = .ApiError(err.description)
+                    self?.startNetworkMonitor()
                 }).disposed(by: disposeBag)
+    }
+    
+    private func startNetworkMonitor() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            if path.status == .satisfied, self?.items.isEmpty ?? false {
+                DispatchQueue.main.async {
+                    self?.doRequestGetPullRequestsUseCase(
+                        ownerName: self?.lastOwnerNameUsed ?? "",
+                        repositoryName: self?.lastRepositoryNameUsed ?? "")
+                }
+            }
+        }
+        monitor.start(queue: queue)
     }
 }
 

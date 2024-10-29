@@ -42,6 +42,9 @@ class ListRepositoriesViewModel: ObservableObject {
     private var isPagination = false
     private let disposeBag = DisposeBag()
     
+    private let monitor = NWPathMonitor()
+    private let queue = DispatchQueue(label: "ListRepositories")
+    
     let usecase: GetPopularRepositoriesUseCaseProtocol
     
     init(usecase: GetPopularRepositoriesUseCaseProtocol) {
@@ -67,7 +70,10 @@ class ListRepositoriesViewModel: ObservableObject {
                     success.forEach { repo in
                         self?.items.appendIfNotContains(repo)
                     }
+                    self?.monitor.cancel()
                     self?.currentPage += 1
+                    debugPrint("\(String(describing: self?.items.count))")
+                    debugPrint("\(String(describing: self?.currentPage))")
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.isLoadingMore = false
@@ -78,10 +84,22 @@ class ListRepositoriesViewModel: ObservableObject {
                             self?.uiState = .ApiError(err.description)
                         }
                     }
+                    self?.startNetworkMonitor()
                 }).disposed(by: disposeBag)
     }
     
     func clearError() {
         errorWrapper = nil
+    }
+    
+    private func startNetworkMonitor() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            if path.status == .satisfied, self?.items.isEmpty ?? false {
+                DispatchQueue.main.async {
+                    self?.doRequestGetPopularRepositories(isPagination: false)
+                }
+            }
+        }
+        monitor.start(queue: queue)
     }
 }

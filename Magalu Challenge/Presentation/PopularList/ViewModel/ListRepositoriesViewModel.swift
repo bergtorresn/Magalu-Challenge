@@ -66,7 +66,9 @@ class ListRepositoriesViewModel: ObservableObject {
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.isLoadingMore = false
-                    self?.uiState = .ApiError(err.description)
+                    if !isPagination {
+                        self?.uiState = .ApiError(err.description)
+                    }
                 }).disposed(by: disposeBag)
     }
 }

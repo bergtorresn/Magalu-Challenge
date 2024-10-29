@@ -12,35 +12,32 @@ struct ItemRepositoryUIView: View {
     
     var body: some View {
         NavigationLink(destination: ListPullRequestsUIView(repository: item).toolbarRole(.editor)){
-            VStack(content: {
-                HStack(content: {
-                    VStack(alignment: .leading, content: {
-                        Text(item.name)
-                            .font(.headline)
-                            .lineLimit(nil)
-                        Text(item.description)
-                            .font(.subheadline)
-                            .lineLimit(2)
-                    })
-                    Spacer()
-                    VStack(alignment: .center, content: {
-                        AsyncImage(url: URL(string: item.owner.avatar)) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                                .padding()
-                                .frame(width: 32, height: 32)
-                                .background(Color.gray.opacity(0.7))
-                                .clipShape(Circle())
-                        }.frame(width: 32, height: 32)
+            VStack(alignment: .leading, content: {
+                Text(item.name)
+                    .font(.headline)
+                    .lineLimit(nil)
+                Text(item.description)
+                    .font(.subheadline)
+                    .lineLimit(2)
+                HStack {
+                    AsyncImage(url: URL(string: item.owner.avatar)) { image in
+                        image.resizable()
+                    } placeholder: {
+                        ProgressView()
+                            .padding()
+                            .frame(width: 32, height: 32)
+                            .background(Color.gray.opacity(0.7))
                             .clipShape(Circle())
+                    }.frame(width: 32, height: 32)
+                        .clipShape(Circle())
+                    VStack{
                         Text(item.owner.name)
                             .font(.headline)
                             .lineLimit(nil)
-                    })
-                })
-                HStack(content: {
-                    HStack(content: {
+                    }
+                }
+                HStack{
+                    HStack{
                         Image(systemName: "star")
                             .symbolRenderingMode(.hierarchical)
                             .foregroundStyle(.yellow)
@@ -48,8 +45,8 @@ struct ItemRepositoryUIView: View {
                         Text("\(item.stargazersCount)")
                             .font(.body)
                             .lineLimit(1)
-                    })
-                    HStack(content: {
+                    }
+                    HStack{
                         Image(systemName: "personalhotspot")
                             .symbolRenderingMode(.hierarchical)
                             .foregroundStyle(.yellow)
@@ -57,10 +54,9 @@ struct ItemRepositoryUIView: View {
                         Text("\(item.watchersCount)")
                             .font(.body)
                             .lineLimit(1)
-                    })
+                    }
                     Spacer()
-                })
-                .padding(.vertical, 8)
+                }
             })
         }
     }

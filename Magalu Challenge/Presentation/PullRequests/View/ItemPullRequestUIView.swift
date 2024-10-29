@@ -19,7 +19,7 @@ struct ItemPullRequestUIView: View {
                 Text(item.body)
                     .font(.subheadline)
                     .lineLimit(3)
-                HStack(content: {
+                HStack {
                     AsyncImage(url: URL(string: item.user.avatar)) { image in
                         image.resizable()
                     } placeholder: {
@@ -30,12 +30,12 @@ struct ItemPullRequestUIView: View {
                             .clipShape(Circle())
                     }.frame(width: 32, height: 32)
                         .clipShape(Circle())
-                    VStack(content: {
+                    VStack{
                         Text(item.user.name)
                             .font(.headline)
                             .lineLimit(nil)
-                    })
-                })
+                    }
+                }
                 Text(item.createdAt)
                     .font(.caption)
                     .lineLimit(nil)

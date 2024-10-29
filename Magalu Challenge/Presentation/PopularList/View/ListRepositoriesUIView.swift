@@ -23,9 +23,10 @@ struct ListRepositoriesUIView: View {
             .navigationTitle(AppStrings.navigationTitle)
             .navigationBarTitleDisplayMode(.automatic)
             .font(.system(.title))
-            .onAppear(perform: {
-                viewModel.doRequestGetPopularRepositories(isPagination: false)
-            })
+            .onViewDidLoad {
+                viewModel.doRequestGetPopularRepositories(
+                    isPagination: false)
+            }
         }
     }
     
@@ -44,7 +45,8 @@ struct ListRepositoriesUIView: View {
                     ItemRepositoryUIView(item: item)
                         .onAppear {
                             if item == viewModel.items.last {
-                                viewModel.doRequestGetPopularRepositories(isPagination: true)
+                                viewModel.doRequestGetPopularRepositories(
+                                    isPagination: true)
                             }
                         }
                 }.overlay {

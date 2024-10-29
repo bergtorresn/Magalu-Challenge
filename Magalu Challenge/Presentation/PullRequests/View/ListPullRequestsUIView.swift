@@ -25,8 +25,11 @@ struct ListPullRequestsUIView: View {
             .navigationTitle(repository.name)
             .navigationBarTitleDisplayMode(.automatic)
             .font(.system(.title))
-            .onAppear(perform: {
-                viewModel.doRequestGetPullRequestsUseCase(ownerName: repository.owner.name, repositoryName: repository.name)            })
+            .onViewDidLoad {
+                viewModel.doRequestGetPullRequestsUseCase(
+                    ownerName: repository.owner.name,
+                    repositoryName: repository.name)
+            }
         }
     }
     

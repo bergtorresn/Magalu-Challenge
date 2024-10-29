@@ -12,6 +12,8 @@
 		61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66DE2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift */; };
 		61BB66F02CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */; };
 		9829EC1D2CD07F0900378290 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */; };
+		9829EC1F2CD0830200378290 /* ViewDidLoadModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */; };
+		9829EC212CD0831F00378290 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9829EC202CD0831F00378290 /* Extensions.swift */; };
 		9843F4FB2CCFBE8900A01E27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */; };
 		9843F4FF2CCFBEFA00A01E27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */; };
 		9843F5012CCFD96000A01E27 /* DependecyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9843F5002CCFD96000A01E27 /* DependecyInjector.swift */; };
@@ -117,6 +119,8 @@
 		61BB66EF2CCAE85500B4CDB8 /* Magalu_ChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeTests.swift; sourceTree = "<group>"; };
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9829EC1C2CD07F0900378290 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDidLoadModifier.swift; sourceTree = "<group>"; };
+		9829EC202CD0831F00378290 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		9843F4FA2CCFBE8900A01E27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9843F4FE2CCFBEFA00A01E27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9843F5002CCFD96000A01E27 /* DependecyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependecyInjector.swift; sourceTree = "<group>"; };
@@ -624,6 +628,8 @@
 			children = (
 				98F1E2432CCD7792003CE49E /* AppStrings.swift */,
 				9843F5002CCFD96000A01E27 /* DependecyInjector.swift */,
+				9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */,
+				9829EC202CD0831F00378290 /* Extensions.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -918,6 +924,7 @@
 				9897B3FA2CCC2A4600651C91 /* RepositoryEntity.swift in Sources */,
 				9897B3F82CCC2A4600651C91 /* PopularListRepository.swift in Sources */,
 				9897B3FB2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift in Sources */,
+				9829EC212CD0831F00378290 /* Extensions.swift in Sources */,
 				9897B4082CCC2E6F00651C91 /* ListPullRequestsUIView.swift in Sources */,
 				98B7933E2CCEAC22006769DF /* ListPullRequestsViewModel.swift in Sources */,
 				98B793272CCEA13F006769DF /* PullRequestsRepositoryProtocol.swift in Sources */,
@@ -929,6 +936,7 @@
 				9897B4052CCC2D6500651C91 /* ListRepositoriesUIView.swift in Sources */,
 				61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */,
 				9843F5232CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */,
+				9829EC1F2CD0830200378290 /* ViewDidLoadModifier.swift in Sources */,
 				9897B40B2CCC3DA400651C91 /* ListRepositoriesViewModel.swift in Sources */,
 				9843F50C2CCFEAF600A01E27 /* MockGetPopularRepositoriesUseCase.swift in Sources */,
 				9843F53A2CD00E4F00A01E27 /* PullRequestWebViewUIView.swift in Sources */,

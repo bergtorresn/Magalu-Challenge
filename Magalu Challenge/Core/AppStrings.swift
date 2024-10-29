@@ -20,9 +20,17 @@ class AppStrings {
     static let notFoundError: String = "Not Found"
     static let serverError: String = "Server Error"
     static let unknownError: String = "Unknown Error"
-    
+    static let noInternetConnection: String = "No Internet Connection"
+
     
     // ========== PULL REQUEST VIEW STRINGS
-    
     static let navigationTitle: String = "Popular Repositories"
+    
+    // ========== POPULAR REPOSITORIES VIEW STRINGS
+    
+    // ========== DIALOG STRINGS
+    static let dialogBtnOk: String = "Ok"
+    static let dialogTitleDefault = "Attention"
+
+    
 }

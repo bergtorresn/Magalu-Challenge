@@ -50,7 +50,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "61BB66F42CCAE85500B4CDB8"
+               BlueprintIdentifier = "981ECD032CD189E3004156B3"
                BuildableName = "Magalu ChallengeUITests.xctest"
                BlueprintName = "Magalu ChallengeUITests"
                ReferencedContainer = "container:Magalu Challenge.xcodeproj">

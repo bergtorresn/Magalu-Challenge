@@ -50,7 +50,7 @@ struct ListRepositoriesUIView: View {
         case .Success:
             return AnyView(
                 List(viewModel.items) { item in
-                    ItemRepositoryUIView(item: item)
+                    ItemRepositoryUIView(item: item).accessibilityIdentifier("GitHubRepository")
                         .onAppear {
                             if item == viewModel.items.last {
                                 viewModel.doRequestGetPopularRepositories(

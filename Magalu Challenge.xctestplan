@@ -28,6 +28,13 @@
         "identifier" : "61BB66EA2CCAE85500B4CDB8",
         "name" : "Magalu ChallengeTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Magalu Challenge.xcodeproj",
+        "identifier" : "981ECD032CD189E3004156B3",
+        "name" : "Magalu ChallengeUITests"
+      }
     }
   ],
   "version" : 1

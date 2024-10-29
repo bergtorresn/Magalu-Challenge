@@ -23,7 +23,7 @@ class PopularListDataSource: PopularListDataSourceProtocol {
     func doRequestGetPopularList(page: Int) -> Single<PopularListModel> {
         return self.networkService.doRequest(endpoint: AppStrings.endpointpopularRepositories,
                                              method: .get,
-                                             parameters: ["q":"language:Kotlin", "sort":"stars", "page":page],
+                                             parameters: ["q":"language:Swift", "sort":"stars", "page":page],
                                              headers: nil)
     }
 }

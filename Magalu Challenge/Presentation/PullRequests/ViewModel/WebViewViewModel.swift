@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+class WebViewViewModel: ObservableObject {
+    @Published var isLoading: Bool = false
+
+    var url: String
+    
+    init(url: String) {
+        self.url = url
+    }
+}

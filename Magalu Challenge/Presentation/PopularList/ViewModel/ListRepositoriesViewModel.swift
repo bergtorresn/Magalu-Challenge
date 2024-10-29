@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import Network
 
 enum ListRepositoriesState: Equatable {
     case Init
@@ -35,11 +36,13 @@ class ListRepositoriesViewModel: ObservableObject {
     @Published var uiState: ListRepositoriesState = .Init
     @Published var items: [RepositoryEntity] = []
     @Published var isLoadingMore: Bool = false
+    @Published var errorWrapper: ErrorWrapper?
     
     private var currentPage = 1
+    private var isPagination = false
+    private let disposeBag = DisposeBag()
     
     let usecase: GetPopularRepositoriesUseCaseProtocol
-    private let disposeBag = DisposeBag()
     
     init(usecase: GetPopularRepositoriesUseCaseProtocol) {
         self.usecase = usecase
@@ -61,14 +64,24 @@ class ListRepositoriesViewModel: ObservableObject {
                     } else {
                         self?.uiState = .Success
                     }
-                    self?.items.append(contentsOf: success)
+                    success.forEach { repo in
+                        self?.items.appendIfNotContains(repo)
+                    }
                     self?.currentPage += 1
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.isLoadingMore = false
-                    if !isPagination {
-                        self?.uiState = .ApiError(err.description)
+                    if isPagination {
+                        self?.errorWrapper = ErrorWrapper(message: err.description)
+                    } else {
+                        if self?.items.isEmpty ?? false {
+                            self?.uiState = .ApiError(err.description)
+                        }
                     }
                 }).disposed(by: disposeBag)
+    }
+    
+    func clearError() {
+        errorWrapper = nil
     }
 }

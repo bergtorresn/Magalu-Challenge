@@ -98,6 +98,10 @@
 		98F1E2622CCD7F4E003CE49E /* PopularListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */; };
 		98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2642CCD85CC003CE49E /* PopularListRepositoryTests.swift */; };
 		98F1E2682CCDA11B003CE49E /* PopularListDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2672CCDA11B003CE49E /* PopularListDataSourceTests.swift */; };
+		98F256D52CD11E4700FC8B29 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F256D42CD11E4700FC8B29 /* ErrorWrapper.swift */; };
+		98F256D72CD13D7100FC8B29 /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F256D62CD13D7100FC8B29 /* WebViewViewModel.swift */; };
+		98F256D82CD13D7600FC8B29 /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F256D62CD13D7100FC8B29 /* WebViewViewModel.swift */; };
+		98F256DA2CD1419D00FC8B29 /* PullRequestUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F256D92CD1419D00FC8B29 /* PullRequestUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +180,9 @@
 		98F1E2612CCD7F4E003CE49E /* PopularListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListModelTests.swift; sourceTree = "<group>"; };
 		98F1E2642CCD85CC003CE49E /* PopularListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListRepositoryTests.swift; sourceTree = "<group>"; };
 		98F1E2672CCDA11B003CE49E /* PopularListDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularListDataSourceTests.swift; sourceTree = "<group>"; };
+		98F256D42CD11E4700FC8B29 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		98F256D62CD13D7100FC8B29 /* WebViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewModel.swift; sourceTree = "<group>"; };
+		98F256D92CD1419D00FC8B29 /* PullRequestUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestUIView.swift; sourceTree = "<group>"; };
 		A1BDFD2D7E75DD2B105A2FF3 /* Pods-Magalu Challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.debug.xcconfig"; sourceTree = "<group>"; };
 		B2E8FC9252229FCE776F219A /* Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C42D73A2B6467D00663A4987 /* Pods-Magalu Challenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge/Pods-Magalu Challenge.release.xcconfig"; sourceTree = "<group>"; };
@@ -603,6 +610,7 @@
 				9897B4072CCC2E6F00651C91 /* ListPullRequestsUIView.swift */,
 				98B793442CCEAF4D006769DF /* ItemPullRequestUIView.swift */,
 				9843F5392CD00E4F00A01E27 /* PullRequestWebViewUIView.swift */,
+				98F256D92CD1419D00FC8B29 /* PullRequestUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -611,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				98B7933D2CCEAC22006769DF /* ListPullRequestsViewModel.swift */,
+				98F256D62CD13D7100FC8B29 /* WebViewViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -630,6 +639,7 @@
 				9843F5002CCFD96000A01E27 /* DependecyInjector.swift */,
 				9829EC1E2CD0830200378290 /* ViewDidLoadModifier.swift */,
 				9829EC202CD0831F00378290 /* Extensions.swift */,
+				98F256D42CD11E4700FC8B29 /* ErrorWrapper.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -925,7 +935,9 @@
 				9897B3F82CCC2A4600651C91 /* PopularListRepository.swift in Sources */,
 				9897B3FB2CCC2A4600651C91 /* PopularListRepositoryProtocol.swift in Sources */,
 				9829EC212CD0831F00378290 /* Extensions.swift in Sources */,
+				98F256D72CD13D7100FC8B29 /* WebViewViewModel.swift in Sources */,
 				9897B4082CCC2E6F00651C91 /* ListPullRequestsUIView.swift in Sources */,
+				98F256D52CD11E4700FC8B29 /* ErrorWrapper.swift in Sources */,
 				98B7933E2CCEAC22006769DF /* ListPullRequestsViewModel.swift in Sources */,
 				98B793272CCEA13F006769DF /* PullRequestsRepositoryProtocol.swift in Sources */,
 				98B793362CCEA97C006769DF /* PullRequestsRepository.swift in Sources */,
@@ -933,6 +945,7 @@
 				9897B3F72CCC2A4600651C91 /* RepositoryModel.swift in Sources */,
 				9843F50F2CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */,
 				98B793322CCEA83E006769DF /* PullRequestUserModel.swift in Sources */,
+				98F256DA2CD1419D00FC8B29 /* PullRequestUIView.swift in Sources */,
 				9897B4052CCC2D6500651C91 /* ListRepositoriesUIView.swift in Sources */,
 				61BB66DF2CCAE85100B4CDB8 /* Magalu_ChallengeApp.swift in Sources */,
 				9843F5232CCFF33400A01E27 /* MockPullRequestsRepository.swift in Sources */,
@@ -958,6 +971,7 @@
 				98B793462CCEAF4D006769DF /* ItemPullRequestUIView.swift in Sources */,
 				9843F5102CCFED1800A01E27 /* MockPopularListRepository.swift in Sources */,
 				98B793282CCEA13F006769DF /* PullRequestsRepositoryProtocol.swift in Sources */,
+				98F256D82CD13D7600FC8B29 /* WebViewViewModel.swift in Sources */,
 				9843F50A2CCFE6EC00A01E27 /* MockPopularListDataSource.swift in Sources */,
 				98B7932C2CCEA20F006769DF /* PullRequestsDatasource.swift in Sources */,
 				98F1E2582CCD78B8003CE49E /* PopularListRepository.swift in Sources */,

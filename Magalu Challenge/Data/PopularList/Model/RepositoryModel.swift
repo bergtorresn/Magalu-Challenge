@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RepositoryModel : Codable {
+class RepositoryModel : Codable {
     
     var id: Int = 1
     var name: String = ""
@@ -28,6 +28,16 @@ struct RepositoryModel : Codable {
         self.stargazersCount = stargazersCount
         self.watchersCount = watchersCount
         self.owner = owner
+    }
+    
+    required init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.description = try container.decodeIfPresent(String.self, forKey: .description) ?? ""
+        self.stargazersCount = try container.decode(Int.self, forKey: .stargazersCount)
+        self.watchersCount = try container.decode(Int.self, forKey: .watchersCount)
+        self.owner =  try container.decode(OwnerModel.self, forKey: .owner)
     }
     
     enum CodingKeys: String, CodingKey {

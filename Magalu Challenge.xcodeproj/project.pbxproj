@@ -18,7 +18,6 @@
 		981DB5CA2CD14F4300A2B831 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E41E692CCEC84900D28B98 /* LoadingView.swift */; };
 		981ECCF92CD1679F004156B3 /* NetworkServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCF82CD1679F004156B3 /* NetworkServiceTests.swift */; };
 		981ECCFB2CD169BC004156B3 /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */; };
-		981ECCFF2CD1855D004156B3 /* ErrorWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */; };
 		981ECD072CD189E3004156B3 /* Magalu_ChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECD062CD189E3004156B3 /* Magalu_ChallengeUITests.swift */; };
 		981ECD092CD189E3004156B3 /* Magalu_ChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 981ECD082CD189E3004156B3 /* Magalu_ChallengeUITestsLaunchTests.swift */; };
 		981ECD0F2CD18BA4004156B3 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F1E2432CCD7792003CE49E /* AppStrings.swift */; };
@@ -143,7 +142,6 @@
 		6A02CE3518D897759864C514 /* Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; path = "Target Support Files/Pods-Magalu Challenge-Magalu ChallengeUITests/Pods-Magalu Challenge-Magalu ChallengeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		981ECCF82CD1679F004156B3 /* NetworkServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTests.swift; sourceTree = "<group>"; };
 		981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
-		981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapperTests.swift; sourceTree = "<group>"; };
 		981ECD042CD189E3004156B3 /* Magalu ChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Magalu ChallengeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		981ECD062CD189E3004156B3 /* Magalu_ChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITests.swift; sourceTree = "<group>"; };
 		981ECD082CD189E3004156B3 /* Magalu_ChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magalu_ChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -330,7 +328,6 @@
 				9843F52D2CCFF8E900A01E27 /* MockPullRequestsDataSource.swift */,
 				9843F5362CCFFD0800A01E27 /* MockGetPullRequestsUseCase.swift */,
 				981ECCFA2CD169BC004156B3 /* MockURLProtocol.swift */,
-				981ECCFE2CD1855D004156B3 /* ErrorWrapperTests.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1103,7 +1100,6 @@
 				9843F51F2CCFF00400A01E27 /* PullRequestEntityTests.swift in Sources */,
 				98F1E2652CCD85CC003CE49E /* PopularListRepositoryTests.swift in Sources */,
 				98F1E2602CCD7E30003CE49E /* RepositoryModelTests.swift in Sources */,
-				981ECCFF2CD1855D004156B3 /* ErrorWrapperTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

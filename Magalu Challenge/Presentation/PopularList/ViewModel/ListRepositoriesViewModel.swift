@@ -72,8 +72,6 @@ class ListRepositoriesViewModel: ObservableObject {
                     }
                     self?.monitor.cancel()
                     self?.currentPage += 1
-                    debugPrint("\(String(describing: self?.items.count))")
-                    debugPrint("\(String(describing: self?.currentPage))")
                 }, onFailure: { [weak self] failure in
                     let err = failure as! NetworkError
                     self?.isLoadingMore = false

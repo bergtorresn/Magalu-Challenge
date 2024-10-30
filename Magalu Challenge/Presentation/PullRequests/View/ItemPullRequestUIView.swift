@@ -40,7 +40,7 @@ struct ItemPullRequestUIView: View {
                     .font(.caption)
                     .lineLimit(nil)
             })
-        }
+        }.accessibilityIdentifier("\(item.title)")
     }
 }
 

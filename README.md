@@ -18,6 +18,7 @@ O projeto segue a **Clean Architecture**, organizando o código nas camadas de:
 1. **Data** - Para acesso a dados de rede e transformação de modelos.
 2. **Domain** - Para lógica de negócio e regras específicas.
 3. **Presentation** - Para as Views e Interações com o usuário.
+4. **Core** - Para configurações que podem ser acessados ​​de várias camadas
 
 As camadas são desacopladas para facilitar a manutenção e possibilitar testes unitários.
 

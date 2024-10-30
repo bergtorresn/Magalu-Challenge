@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct OwnerModel: Codable {
+class OwnerModel: Codable {
     
     var name: String = ""
     var avatar: String = ""

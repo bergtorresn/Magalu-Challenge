@@ -58,7 +58,7 @@ struct ItemRepositoryUIView: View {
                     Spacer()
                 }
             })
-        }
+        }.accessibilityIdentifier("\(item.name)")
     }
 }
 

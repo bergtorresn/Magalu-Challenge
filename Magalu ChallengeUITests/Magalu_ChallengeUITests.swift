@@ -10,10 +10,14 @@ import XCTest
 final class Magalu_ChallengeUITests: XCTestCase {
 
     func testRepositoryListContainsSpecificItem() {
-            let app = XCUIApplication()
-            app.launch()
-
-        // Verifique se a primeira tela está carregada
-         XCTAssertTrue(app.staticTexts[AppStrings.navigationTitle].exists)
-        }
+        let app = XCUIApplication()
+        app.launch()
+        
+        let listItem = app.staticTexts["awesome-ios"]
+        XCTAssertTrue(listItem.waitForExistence(timeout: 5))
+        listItem.tap()
+        
+        let pullRequestView = app.staticTexts["Add Pagination"]
+        XCTAssertTrue(pullRequestView.waitForExistence(timeout: 5))
+    }
 }

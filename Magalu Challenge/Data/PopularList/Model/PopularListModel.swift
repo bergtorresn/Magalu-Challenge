@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PopularListModel: Codable {
+class PopularListModel: Codable {
     
     var items: [RepositoryModel] = []
     
